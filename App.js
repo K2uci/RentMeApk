@@ -1,20 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import ButtNav from './src/buttNav/ButtNav';
+import { NavigationContainer } from '@react-navigation/native';
+import { StyleSheet , View } from 'react-native';
+
+
+const style = StyleSheet.create({
+    tab:{
+        width:'100vw',
+    }
+})
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={style.tab}>
+      <NavigationContainer>
+        <ButtNav />
+      </NavigationContainer>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
