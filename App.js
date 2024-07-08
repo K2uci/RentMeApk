@@ -1,11 +1,11 @@
-import ButtNav from './src/buttNav/ButtNav';
+import RouteButtsNav from './src/routes/RouteButtsNav';
 import { NavigationContainer } from '@react-navigation/native';
 import { StyleSheet , View } from 'react-native';
 
 
 const style = StyleSheet.create({
     tab:{
-        width:'100vw',
+        flex:1
     }
 })
 
@@ -13,7 +13,7 @@ export default function App() {
   return (
     <View style={style.tab}>
       <NavigationContainer>
-        <ButtNav />
+        <RouteButtsNav />
       </NavigationContainer>
     </View>
   );

@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, FlatList, StyleSheet, Animated } from 'react-native';
+import { View, Text, FlatList, StyleSheet } from 'react-native';
+import { Animated , useSharedValue } from 'react-native-reanimated';
 
 const AnimatedFlatlistItem = ({ item }) => {
   const translateX = new Animated.Value(0);

@@ -1,27 +1,27 @@
 import React from 'react';
 import { Image } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import Pay_user from '../user/Pay_user/Pay_user'
 import Main from '../views/Main'
 import Prefers from '../views/Prefers'
-import UserView from '../views/UserView'
-
-
+import RoutePayUser from '../routes/RoutePayUser';
 import RoutMain from '../routes/RoutMain'
+
+import VistaA from '../buttNav/VistaA'
 
 
 const Tab = createBottomTabNavigator();
 
-function ButtNav() {
+function RouteButtsNav() {
 
   return (
     <Tab.Navigator
-    initialRouteName="Home"
+    initialRouteName="Cart"
     > 
       <Tab.Screen
         name="Home"
         component={Main}
         options={{ 
+          tabBarAccessibilityLabel:false,
           headerShown:false,
           tabBarLabel: 'Home',
           tabBarIcon: ({ color }) => (
@@ -53,7 +53,7 @@ function ButtNav() {
       />
       <Tab.Screen
         name="Profile"
-        component={Pay_user}
+        component={RoutMain}
         options={{
           tabBarBadge: 3,
           tabBarBadgeStyle:{
@@ -72,7 +72,7 @@ function ButtNav() {
       />
       <Tab.Screen
         name="User"
-        component={UserView}
+        component={RoutePayUser}
         options={{
           headerShown:false,
           tabBarLabel: 'User',
@@ -85,5 +85,5 @@ function ButtNav() {
   )
 }
 
-export default ButtNav
+export default RouteButtsNav
 

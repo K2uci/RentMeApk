@@ -9,7 +9,7 @@ import MainFlat2 from '../components/MainComponetns/MainFlat2/MainFlat2';
 import MainPartner from '../components/MainComponetns/MainPartner/MainPartner';
 import MainInspiration from '../components/MainComponetns/MainInspiration/MainInspiration';
 import MainTagsSection from '../components/MainComponetns/MainTagsSection/MainTagsSection';
-import Routmain from '../routes/RoutMain'
+
 
 const style = StyleSheet.create({
     contAll:{

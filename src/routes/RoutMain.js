@@ -1,9 +1,15 @@
 import * as React from 'react';
 import { View , Image } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+
+import Header from '../components/Header/Header';
+import { HeaderCurrency , HeaderPassword , HeaderSelectLanguaje} from '../components/Header/HeaderConfig';
 import Config from '../components/Config/Config'
 import Main from '../views/Main';
-import Header from '../components/Header/Header';
+import ChangePassword  from '../components/ConfigComponents/ChangePassword'
+import ChangeCurrency from '../components/ConfigComponents/ChangeCurrency';
+import ChangeLanguaje from '../components/ConfigComponents/ChangeLanguaje';
+
 
 const Drawer = createDrawerNavigator();
 
@@ -25,7 +31,7 @@ export default function RoutMain() {
         drawerContent={(props) => <Config {...props} />}
         >
         <Drawer.Screen 
-            name="Informacion" 
+            name="Home" 
             component={Main}
             options={{
                 drawerIcon:() => (
@@ -37,35 +43,44 @@ export default function RoutMain() {
             />
         <Drawer.Screen 
             name="Change Password" 
-            component={Config} 
+            component={ChangePassword} 
             options={{
                 drawerIcon:({ color }) => (   
                 <View style={{backgroundColor:'rgb(30,41,59)',borderRadius:5,justifyContent:'center',alignItems:'center',height:50,width:50}}>
                     <Image style={{tintColor:'white',height:'60%',width:'60%'}} source={require('../../assets/images/app-setting/password-icon.svg')}/>
                 </View>
                 ),
+                header:({ navigation }) => (
+                    <HeaderPassword navigation={navigation}/>
+                )
             }}
             />
         <Drawer.Screen 
             name="Monedas" 
-            component={Main} 
+            component={ChangeCurrency} 
             options={{
                 drawerIcon:({ color }) => (      
                 <View style={{backgroundColor:'rgb(30,41,59)',borderRadius:5,justifyContent:'center',alignItems:'center',height:50,width:50}}>
                    <Image style={{tintColor:'white',height:'60%',width:'60%'}} source={require('../../assets/images/app-setting/currency.svg')}/>
                 </View>
                 ),
+            header:({ navigation }) => (
+                <HeaderCurrency navigation={navigation}/>
+            )
             }}
             />
         <Drawer.Screen 
             name="Change Language" 
-            component={Config} 
+            component={ChangeLanguaje} 
             options={{
                 drawerIcon:({ color }) => (
                     <View style={{backgroundColor:'rgb(30,41,59)',borderRadius:5,justifyContent:'center',alignItems:'center',height:50,width:50}}>
                         <Image style={{tintColor:'white',height:'60%',width:'60%'}} source={require('../../assets/images/app-setting/language-icon.svg')}/>
                     </View>
-                  ),
+                  ),            
+                header:({ navigation }) => (
+                    <HeaderSelectLanguaje navigation={navigation}/>
+                ) 
             }}
             />
         <Drawer.Screen 

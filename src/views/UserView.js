@@ -111,7 +111,7 @@ const style = StyleSheet.create({
   }
 })
 
-function user_View({navigation}) {
+function UserView({navigation}) {
 
   const method_pay =[
     require('../../assets/images/payment-method/ApplePay.png'),
@@ -121,7 +121,7 @@ function user_View({navigation}) {
     require('../../assets/images/payment-method/Mastercard.png'),
     require('../../assets/images/payment-method/APAY.png'),   
   ]
-
+  
   return (
     <>
       <ScrollView style={style.scroll}>
@@ -196,8 +196,8 @@ function user_View({navigation}) {
         {/* Componente para listar los metodos de pago */}
 
         <View style={style.contAllButts}>
-          {method_pay.map((item) => (
-            <TouchableOpacity onPress={() => navigation.navigate('Notifications') } style={style.buttsPayments} key={item}>
+          {method_pay.map((item,index) => (
+            <TouchableOpacity style={style.buttsPayments} onPress={()=>navigation.navigate('PayUser',{ select:index})} key={item}>
               <View style={style.contphotoPaymens}>
                 <Image style={style.imageButts} source={item} />
               </View>
@@ -210,4 +210,4 @@ function user_View({navigation}) {
   )
 }
 
-export default user_View
+export default UserView
