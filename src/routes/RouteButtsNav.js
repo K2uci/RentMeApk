@@ -6,9 +6,6 @@ import Prefers from '../views/Prefers'
 import RoutePayUser from '../routes/RoutePayUser';
 import RoutMain from '../routes/RoutMain'
 
-import VistaA from '../buttNav/VistaA'
-
-
 const Tab = createBottomTabNavigator();
 
 function RouteButtsNav() {

@@ -125,3 +125,12 @@ const Sign_up = () => {
 };
 
 export default Sign_up;
+
+// La estructura del componente se compone de:
+
+// Un título principal (Create an Account) con estilo title.
+// Un subtítulo (Sign up to join) con estilo titleaux.
+// Cuatro secciones de entrada de datos (nombre completo, email, número de teléfono y contraseña) cada una con un título (label) y un campo de entrada (TextInput) con estilo input.
+// Una sección de términos de servicio con un checkbox y un enlace a los términos de servicio.
+// Un botón de registro (Sing Up) con estilo butt.
+// Un enlace a la pantalla de inicio de sesión (Have an account) con estilo text_aux2 y text_aux3.

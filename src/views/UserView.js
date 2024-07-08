@@ -211,3 +211,20 @@ function UserView({navigation}) {
 }
 
 export default UserView
+
+
+// Componente UserView
+
+// El componente UserView recibe una prop navigation que se utiliza para navegar a otras pantallas.
+
+// Sección de perfil
+
+// La sección de perfil contiene un contenedor contAllInfoUp que muestra la información del perfil del usuario, incluyendo una imagen de perfil, nombre, correo electrónico y número de teléfono. La imagen de perfil se muestra en un contenedor contPhotoPerfil con un botón buttNewPhoto para cambiar la imagen.
+
+// Sección de pagos y datos
+
+// La sección de pagos y datos contiene un contenedor contAllPays que muestra información sobre la billetera del usuario, incluyendo el saldo y la dirección. También se muestra una sección de pagos que lista los métodos de pago disponibles.
+
+// Métodos de pago
+
+// Se define un array method_pay que contiene las imágenes de los métodos de pago disponibles (Apple Pay, Google Pay, Visa, PayPal, Mastercard y APAY). Luego, se utiliza un map para renderizar cada método de pago como un botón TouchableOpacity con una imagen y un texto. Cuando se presiona un botón, se navega a la pantalla PayUser con la opción seleccionada
