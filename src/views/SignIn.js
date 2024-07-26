@@ -1,5 +1,6 @@
-import { StyleSheet, Text, View ,TouchableOpacity , TextInput , CheckBox ,Image  } from 'react-native';
 import React from 'react';
+import { useState } from 'react';
+import { StyleSheet, Text, View , Pressable , TextInput , CheckBox ,Image  } from 'react-native';
 
 const style = StyleSheet.create({
   contenedor:{
@@ -71,7 +72,9 @@ const style = StyleSheet.create({
   },
   text_aux3:{
     fontSize:15,
-    color:'rgb(150, 150, 150)',
+    // color:'rgb(150, 150, 150)',
+    color:'#0EA5E9',
+    marginLeft: 5,
     fontWeight:600,
   },
   cont_photo:{
@@ -82,7 +85,7 @@ const style = StyleSheet.create({
   },
   cont_aux_photo:{
     alignItems:'center',
-    backgroundColor:'#rgba(14, 165, 233, 0.1)',
+    backgroundColor:'rgba(14, 165, 233, 0.1)',
     borderRadius:10,
     padding:8,
   },
@@ -92,8 +95,28 @@ const style = StyleSheet.create({
   },
 })
 
+const SignIn = ({ props }) => {
 
-const Sign_in = () => {
+    const [usermail,setUsermail] = useState('');
+    const [password,setPassword] = useState('');
+
+    const sendData = async (usermailSend,passwordSend) => {
+        try {
+            const response = await fetch('http://localhost:3001/login', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({usermail:usermailSend,password:passwordSend}),
+        });
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
+    
+    const prueba = () => {
+      fetch('http://localhost:3001/protected').then(e => console.log(e))
+    }
 
   return (
     <View style={style.contenedor}>
@@ -101,27 +124,27 @@ const Sign_in = () => {
       <Text style={style.titleaux}>Iniciar sesión para continuar</Text>
       <View style={style.phater}>
         <Text style={style.label}>Email</Text>
-        <TextInput style={style.input} placeholder="yourname@gmail.com"/>       
+        <TextInput style={style.input} value={usermail} onChangeText={(text) => setUsermail(text)} placeholder="yourname@gmail.com"/>       
       </View>  
       
       <View style={style.phater}>
         <Text style={style.label}>Password</Text>
-        <TextInput style={style.input} placeholder="********" />    
+        <TextInput style={style.input} value={password} onChangeText={(text) => setPassword(text)} placeholder="********" />    
       </View>
 
       <View style={style.add}>
         <View style={{flexDirection:'row'}}>
           <CheckBox/>
-          <Text style={{color:'rgb(126, 126, 129)'}}>Remember Me</Text>           
+          <Text style={{color:'rgb(126, 126, 129)'}} onPress={prueba}>Remember Me</Text>           
         </View>
         <View>
           <Text style={{color:'#0EA5E9'}}>¿Contraseña olvidada?</Text>        
         </View>
       </View>
 
-      <TouchableOpacity style={style.butt}>
-        <Text style={style.text_butt}>Iniciar</Text>
-      </TouchableOpacity>
+      <Pressable style={style.butt}>
+        <Text style={style.text_butt} onPress={()=> sendData(usermail,password)} >Iniciar</Text>
+      </Pressable>
 
       <Text style={style.text_aux1}>
         Or sign in with
@@ -141,7 +164,7 @@ const Sign_in = () => {
       <View style={{marginTop:45}}>
         <Text style={style.text_aux2}>
           ¿No tienes una cuenta?
-          <Text style={style.text_aux3}>
+          <Text style={style.text_aux3} onPress={()=> props.navigation.navigate('SignUp')}>
             Sign Up
           </Text> 
         </Text>
@@ -150,47 +173,5 @@ const Sign_in = () => {
   )
 }
 
-export default Sign_in;
-
-
-// Importaciones
-
-// El código comienza con la importación de varios componentes y estilos de React Native, incluyendo StyleSheet, Text, View, TouchableOpacity, TextInput, CheckBox, e Image.
-
-// Estilos
-
-// El objeto style es creado utilizando StyleSheet.create() y define varios estilos para los componentes de la pantalla de inicio de sesión. Estos estilos incluyen:
-
-// contenedor: Estilo para el contenedor principal de la pantalla.
-// title: Estilo para el título principal de la pantalla.
-// titleaux: Estilo para el subtítulo de la pantalla.
-// phater: Estilo para los contenedores de los campos de formulario.
-// label: Estilo para las etiquetas de los campos de formulario.
-// input: Estilo para los campos de texto de formulario.
-// add: Estilo para el contenedor de la sección de "Recordarme" y "Contraseña olvidada".
-// butt: Estilo para el botón de inicio de sesión.
-// text_butt: Estilo para el texto del botón de inicio de sesión.
-// text_aux1, text_aux2, text_aux3: Estilos para los textos auxiliares de la pantalla.
-// cont_photo: Estilo para el contenedor de las imágenes de redes sociales.
-// cont_aux_photo: Estilo para los contenedores individuales de las imágenes de redes sociales.
-// photo: Estilo para las imágenes de redes sociales.
-// Componente Sign_in
-
-// El componente Sign_in es una función que devuelve un JSX que representa la pantalla de inicio de sesión.
-
-// El componente se compone de varios elementos:
-
-// Un título principal y un subtítulo que bienvenen al usuario.
-// Dos campos de formulario para el email y la contraseña, cada uno con una etiqueta y un campo de texto.
-// Una sección que permite al usuario recordar su contraseña y recuperarla si la ha olvidado.
-// Un botón de inicio de sesión con un texto "Iniciar".
-// Una sección que permite al usuario iniciar sesión con redes sociales (Google, Facebook y Apple).
-// Un texto que invita al usuario a registrarse si no tiene una cuenta.
-// Notas
-
-// El código utiliza una estructura de componentes y estilos bien organizada, lo que facilita la lectura y el mantenimiento del código.
-// Los estilos se definen utilizando StyleSheet.create(), lo que es una buena práctica para separar la lógica de presentación de la lógica de negocio.
-// El componente utiliza varios componentes de React Native, como TouchableOpacity, TextInput, CheckBox, e Image, lo que es adecuado para una aplicación móvil.
-
-
+export default SignIn;
 

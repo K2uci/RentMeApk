@@ -1,11 +1,15 @@
-import RouteButtsNav from './src/routes/RouteButtsNav';
 import { NavigationContainer } from '@react-navigation/native';
 import { StyleSheet , View } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
 
+import RouteLoggs from './src/routes/RouteLoggs';
+import RouteButtsNav from './src/routes/RouteButtsNav';
+
+const Stack = createStackNavigator();
 
 const style = StyleSheet.create({
     tab:{
-        flex:1
+      flex:1
     }
 })
 
@@ -13,7 +17,10 @@ export default function App() {
   return (
     <View style={style.tab}>
       <NavigationContainer>
-        <RouteButtsNav />
+        <Stack.Navigator initialRouteName="Home" screenOptions={{headerShown:false}}>
+          <Stack.Screen name="Loggin" component={RouteLoggs} />
+          <Stack.Screen name="Home" component={RouteButtsNav} />
+        </Stack.Navigator>
       </NavigationContainer>
     </View>
   );

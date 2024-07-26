@@ -65,14 +65,15 @@ const style = StyleSheet.create({
     color:'rgb(126, 126, 129)',
   },
   text_aux3:{
-    marginLeft:5,
+    color:'#0EA5E9',
+    marginLeft: 5,
     fontSize:18,
-    color:'rgb(100, 100, 100)',
+    // color:'rgb(100, 100, 100)',
     fontWeight:600,
   },
 })
 
-const Sign_up = () => {
+const SignUp = ({ props }) => {
   return (
     <ScrollView>
       <View style={style.contenedor}>
@@ -114,7 +115,7 @@ const Sign_up = () => {
         <View style={{ marginTop: 45 }}>
           <Text style={style.text_aux2}>
             Have an account
-            <Text style={style.text_aux3}>
+            <Text style={style.text_aux3} onPress={()=> props.navigation.navigate('SignIn')}>
               Sign In
             </Text>
           </Text>
@@ -124,13 +125,5 @@ const Sign_up = () => {
   );
 };
 
-export default Sign_up;
+export default SignUp;
 
-// La estructura del componente se compone de:
-
-// Un título principal (Create an Account) con estilo title.
-// Un subtítulo (Sign up to join) con estilo titleaux.
-// Cuatro secciones de entrada de datos (nombre completo, email, número de teléfono y contraseña) cada una con un título (label) y un campo de entrada (TextInput) con estilo input.
-// Una sección de términos de servicio con un checkbox y un enlace a los términos de servicio.
-// Un botón de registro (Sing Up) con estilo butt.
-// Un enlace a la pantalla de inicio de sesión (Have an account) con estilo text_aux2 y text_aux3.

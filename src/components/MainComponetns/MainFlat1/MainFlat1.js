@@ -1,4 +1,5 @@
 import React from 'react'
+import { useEffect , useState } from 'react';
 import { StyleSheet , View , Text , TouchableOpacity , ImageBackground , FlatList } from 'react-native'
 
 
@@ -50,34 +51,44 @@ const renderImagePanel = ({ item }) => (
 
 );
 
-
 function mainFlat1() {
 
-    const imagesPanel = [
-        {
-          'title' : 'pruebas este titulo1',
-          'photo' : require('../../../../assets/images/homepage/1.png'),
-        },
-        {
-          'title' : 'pruebas este titulo2',
-          'photo' : require('../../../../assets/images/homepage/2.png'),
-        },
-        {
-          'title' : 'pruebas este titulo3',
-          'photo' : require('../../../../assets/images/homepage/3.png'),
-        },
-      ]
+  const [photos,setPhotos] = useState([null]);
+  
+  useEffect(()=>{
+    fetch('http://localhost:3001/main/loadDash')
+    .then(res => res.json())
+    .then(data => setPhotos(data))
+  },[])
+
+  const imagesPanel = [
+      {
+        'title' : 'pruebas este titulo1',
+        'photo' : `data:image/jpeg;base64,${photos[0]}`,
+      },
+      {
+        'title' : 'pruebas este titulo2',
+        'photo' : `data:image/jpeg;base64,${photos[1]}`,
+      },
+      {
+        'title' : 'pruebas este titulo3',
+        'photo' : `data:image/jpeg;base64,${photos[2]}`,
+      },
+    ]
 
   return (
 
     <View>
-      <FlatList
+      {photos.length !== 0 ?
+        <FlatList
         horizontal
         showsHorizontalScrollIndicator={false}
         data={imagesPanel}
         renderItem={renderImagePanel}
         keyExtractor={(witem, index) => index.toString()}
-      />
+      /> : <Text>Loading</Text>
+      }
+
     </View>
   )
 }

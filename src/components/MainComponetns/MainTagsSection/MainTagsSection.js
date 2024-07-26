@@ -3,84 +3,84 @@ import { StyleSheet , View , Text , Image , TouchableOpacity , FlatList , ImageB
 
 
 const style = StyleSheet.create({
-    contAllButts:{
-        paddingHorizontal:15,
-        paddingTop:10,
-        paddingBottom:30,
-        flexDirection:'row',
-        justifyContent:'space-between',
-        alignItems:'center',
-      },
-      contButtsLeft:{
-        flexDirection:'row',
-        width:'68%',
-        height:55,
-        borderRadius:8,
-        borderWidth:2,
-        borderColor:'rgb(14 , 165 , 233)',
-        overflow:'hidden',
-      },
-      contPhotoButts:{
-        width:30,
-        height:30,
-      },
-      buttSort:{
-        backgroundColor:'rgb(14 , 165 , 233)',
-        flex:1,
-        flexDirection:'row',
-        justifyContent:'center',
-        alignItems:'center',
-      },
-      buttFilter:{
-        flex:1,
-        flexDirection:'row',
-        justifyContent:'center',
-        alignItems:'center',
-      },
-      contButtsRigth:{
-        flexDirection:'row',
-        width:'20%',
-        height:40,
-        justifyContent:'center',
-        alignItems:'center',
-        overflow:'hidden',
-      }, 
-      buttHeart:{
-        backgroundColor:'white',
-        borderRadius:'50%',
-        height:30,
-        width:30,
-        margin:10,
-        justifyContent:'center',
-        alignItems:'center'
-      },
-    contAllPanel:{
-        width:150,
-        marginLeft:20,
-        paddingBottom:15,
-    },
-    BackgroundPanel:{
-        width:'100%',
-        height:'100%',
-        borderRadius:10,
-        overflow:'hidden',
-        alignItems:'flex-end',
-        justifyContent:'flex-end',
-        objectFit:'cover',
-    },
-    buttTags:{
-        position:'absolute',
-        bottom:0,
-        left:0,
-        backgroundColor:'whitesmoke',
-        borderRadius:5,
-        height:30,
-        width:60,
-        margin:10,
-        justifyContent:'center',
-        alignItems:'center',
-        fontSize:5,
-    }  
+  contAllButts:{
+    paddingHorizontal:15,
+    paddingTop:10,
+    paddingBottom:30,
+    flexDirection:'row',
+    justifyContent:'space-between',
+    alignItems:'center',
+  },
+  contButtsLeft:{
+    flexDirection:'row',
+    width:'68%',
+    height:55,
+    borderRadius:8,
+    borderWidth:2,
+    borderColor:'rgb(14 , 165 , 233)',
+    overflow:'hidden',
+  },
+  contPhotoButts:{
+    width:30,
+    height:30,
+  },
+  buttSort:{
+    backgroundColor:'rgb(14 , 165 , 233)',
+    flex:1,
+    flexDirection:'row',
+    justifyContent:'center',
+    alignItems:'center',
+  },
+  buttFilter:{
+    flex:1,
+    flexDirection:'row',
+    justifyContent:'center',
+    alignItems:'center',
+  },
+  contButtsRigth:{
+    flexDirection:'row',
+    width:'20%',
+    height:40,
+    justifyContent:'center',
+    alignItems:'center',
+    overflow:'hidden',
+  }, 
+  buttHeart:{
+    backgroundColor:'white',
+    borderRadius:'50%',
+    height:30,
+    width:30,
+    margin:10,
+    justifyContent:'center',
+    alignItems:'center'
+  },
+  contAllPanel:{
+    width:150,
+    gap:20,
+    paddingBottom:15,
+  },
+  BackgroundPanel:{
+    width:'100%',
+    height:'100%',
+    borderRadius:10,
+    overflow:'hidden',
+    alignItems:'flex-end',
+    justifyContent:'flex-end',
+    objectFit:'cover',
+  },
+  buttTags:{
+    position:'absolute',
+    bottom:0,
+    left:0,
+    backgroundColor:'whitesmoke',
+    borderRadius:5,
+    height:30,
+    width:60,
+    margin:10,
+    justifyContent:'center',
+    alignItems:'center',
+    fontSize:5,
+  } 
 })
 
 
@@ -191,12 +191,14 @@ function MainTagsSection() {
         </View>
 
         <FlatList
-        showsHorizontalScrollIndicator={false}
-        data={infoPanel}
-        decelerationRate={0}
-        numColumns={2}
-        renderItem={renderImage}
-        keyExtractor={(item, index) => index.toString()}
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={{ flexGrow: 1, justifyContent: 'center' }}
+          columnWrapperStyle={{ justifyContent: 'space-evenly' }} 
+          data={infoPanel}
+          decelerationRate={0}
+          numColumns={2}
+          renderItem={renderImage}
+          keyExtractor={(item, index) => index.toString()}
         />
 
     </View>

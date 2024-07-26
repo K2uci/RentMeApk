@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet , View , Text , FlatList , Image, TouchableOpacity } from 'react-native'
+import { useState , useEffect } from 'react';
+import { StyleSheet , View , Text , FlatList , Image } from 'react-native'
 
 
 const style = StyleSheet.create({
@@ -21,7 +22,8 @@ const style = StyleSheet.create({
         justifyContent:'center',
     },
     contAllPanel:{
-        borderRadius:20,
+        borderRadius:10,
+        borderColor: '#6666',
         borderWidth:1,
         height:100,
         width:240,
@@ -38,8 +40,8 @@ const style = StyleSheet.create({
     },
     textNamePanle:{
         color: '#1E293B',
-        fontSize:18,
-        fontWeight:400,
+        fontSize:20,
+        fontWeight:600,
         marginBottom:5,
     }   
 })
@@ -48,14 +50,14 @@ const style = StyleSheet.create({
 const renderImage = ({ item }) => (
     <View style={style.contAllPanel}>
       <View style={style.contPhoto}>
-        <Image style={{flex:1}} source={item.photo} />        
+        <Image style={{flex:1}} source={`data:image/jpeg;base64,${item.partnerImage}`} />        
       </View>
       <View>
         <Text style={style.textNamePanle}>
-          {item.name}
+          {item.partnerName}
         </Text>
         <Text style={{color:'#1E293B',fontWeight:100}}>
-          {item.address} 
+          {item.partnersAddres} 
         </Text>          
       </View>
     </View>
@@ -63,24 +65,13 @@ const renderImage = ({ item }) => (
 
 
 function MainPartner() {
-    
-    const infoPanel = [
-        {
-          'name' : 'Furnito',
-          'photo' : require('../../../../assets/images/category-page/category-1.png'),
-          'address' : 'Auckland, NZ',
-        },
-        {
-          'name' : 'Wood Lande',
-          'photo' : require('../../../../assets/images/category-page/category-1.png'),
-          'address' : 'New York ,USA'
-        },
-        {
-          'name' : 'Home Decor',
-          'photo' : require('../../../../assets/images/category-page/category-1.png'),
-          'address' : 'Londom, UK'
-        },
-    ]
+    const [infoPartner,setInfoPartner] = useState([])
+    useEffect(()=>{
+      fetch('http://localhost:3001/main/loadPartner')
+      .then(res => res.json())
+      .then(data => setInfoPartner(data))
+      .catch(()=>console.error('Server Offline'))
+    },[])
 
   return (
     <View>
@@ -95,7 +86,7 @@ function MainPartner() {
         <FlatList
             horizontal
             showsHorizontalScrollIndicator={false}
-            data={infoPanel}
+            data={infoPartner}
             decelerationRate={0}
             renderItem={renderImage}
             keyExtractor={(item, index) => index.toString()}
