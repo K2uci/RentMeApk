@@ -1,6 +1,7 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState , useEffect } from 'react';
 import { StyleSheet, Text, View , Pressable , TextInput , CheckBox ,Image  } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const style = StyleSheet.create({
   contenedor:{
@@ -95,28 +96,56 @@ const style = StyleSheet.create({
   },
 })
 
-const SignIn = ({ props }) => {
+const SignIn = ({ navigation }) => {
 
-    const [usermail,setUsermail] = useState('');
-    const [password,setPassword] = useState('');
+  const [usermail,setUsermail] = useState('');
+  const [password,setPassword] = useState('');
 
-    const sendData = async (usermailSend,passwordSend) => {
-        try {
-            const response = await fetch('http://localhost:3001/login', {
-            method: 'POST',
-            headers: {
-            'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({usermail:usermailSend,password:passwordSend}),
-        });
-        } catch (error) {
-            console.error('Error:', error);
-        }
-    };
-    
-    const prueba = () => {
-      fetch('http://localhost:3001/protected').then(e => console.log(e))
+  const createToken = async (token) => {
+    try {
+      await AsyncStorage.setItem('token', token);
+    } catch (error) {
+      console.error(error);
     }
+  };
+
+  const sendDataUser = async (usermailSend,passwordSend) => {
+    try {
+      const response = await fetch('http://localhost:3001/user/loggin', {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json',
+      },
+        body: JSON.stringify({email:usermailSend,password:passwordSend}),
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.token) {//existe el usuario
+          createToken(data.token)
+          navigation.navigate('Home')
+        } else {// no existe el usuario
+            
+        }
+      })
+      .catch(e => console.log(e));
+      } catch (error) {
+        console.error('Error:', error);
+      }
+  };
+
+  useEffect(()=>{
+    const logginByDefault = async () =>{
+      try {
+        const token = await AsyncStorage.getItem('token');
+        if (token) {
+          navigation.navigate('Home')
+        }
+      } catch (error) {
+        return null
+      }
+    }
+    logginByDefault()
+  },[])
 
   return (
     <View style={style.contenedor}>
@@ -135,7 +164,7 @@ const SignIn = ({ props }) => {
       <View style={style.add}>
         <View style={{flexDirection:'row'}}>
           <CheckBox/>
-          <Text style={{color:'rgb(126, 126, 129)'}} onPress={prueba}>Remember Me</Text>           
+          <Text style={{color:'rgb(126, 126, 129)'}} >Remember Me</Text>           
         </View>
         <View>
           <Text style={{color:'#0EA5E9'}}>¿Contraseña olvidada?</Text>        
@@ -143,7 +172,7 @@ const SignIn = ({ props }) => {
       </View>
 
       <Pressable style={style.butt}>
-        <Text style={style.text_butt} onPress={()=> sendData(usermail,password)} >Iniciar</Text>
+        <Text style={style.text_butt} onPress={()=> sendDataUser(usermail,password)} >Iniciar</Text>
       </Pressable>
 
       <Text style={style.text_aux1}>
@@ -164,7 +193,7 @@ const SignIn = ({ props }) => {
       <View style={{marginTop:45}}>
         <Text style={style.text_aux2}>
           ¿No tienes una cuenta?
-          <Text style={style.text_aux3} onPress={()=> props.navigation.navigate('SignUp')}>
+          <Text style={style.text_aux3} onPress={()=> navigation.navigate('SignUp')}>
             Sign Up
           </Text> 
         </Text>
@@ -174,4 +203,3 @@ const SignIn = ({ props }) => {
 }
 
 export default SignIn;
-

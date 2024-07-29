@@ -15,12 +15,12 @@ function RouteButtsNav() {
     initialRouteName="Cart"
     > 
       <Tab.Screen
-        name="Home"
+        name="Main"
         component={Main}
         options={{ 
           tabBarAccessibilityLabel:false,
           headerShown:false,
-          tabBarLabel: 'Home',
+          tabBarLabel: 'Main',
           tabBarIcon: ({ color }) => (
             <Image style={{tintColor:color}} source={require('../../assets/images/notification/home.svg')}/>
           ),

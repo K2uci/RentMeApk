@@ -6,6 +6,7 @@ import Header from '../components/Header/Header';
 import { HeaderCurrency , HeaderPassword , HeaderSelectLanguaje} from '../components/Header/HeaderConfig';
 import Config from '../components/Config/Config'
 import Main from '../views/Main';
+import RouteLoggs from './RouteLoggs';
 import ChangePassword  from '../components/ConfigComponents/ChangePassword'
 import ChangeCurrency from '../components/ConfigComponents/ChangeCurrency';
 import ChangeLanguaje from '../components/ConfigComponents/ChangeLanguaje';
@@ -45,7 +46,7 @@ export default function RoutMain() {
             name="Change Password" 
             component={ChangePassword} 
             options={{
-                drawerIcon:({ color }) => (   
+                drawerIcon:() => (   
                 <View style={{backgroundColor:'rgb(30,41,59)',borderRadius:5,justifyContent:'center',alignItems:'center',height:50,width:50}}>
                     <Image style={{tintColor:'white',height:'60%',width:'60%'}} source={require('../../assets/images/app-setting/password-icon.svg')}/>
                 </View>
@@ -59,7 +60,7 @@ export default function RoutMain() {
             name="Monedas" 
             component={ChangeCurrency} 
             options={{
-                drawerIcon:({ color }) => (      
+                drawerIcon:() => (      
                 <View style={{backgroundColor:'rgb(30,41,59)',borderRadius:5,justifyContent:'center',alignItems:'center',height:50,width:50}}>
                    <Image style={{tintColor:'white',height:'60%',width:'60%'}} source={require('../../assets/images/app-setting/currency.svg')}/>
                 </View>
@@ -73,7 +74,7 @@ export default function RoutMain() {
             name="Change Language" 
             component={ChangeLanguaje} 
             options={{
-                drawerIcon:({ color }) => (
+                drawerIcon:() => (
                     <View style={{backgroundColor:'rgb(30,41,59)',borderRadius:5,justifyContent:'center',alignItems:'center',height:50,width:50}}>
                         <Image style={{tintColor:'white',height:'60%',width:'60%'}} source={require('../../assets/images/app-setting/language-icon.svg')}/>
                     </View>
@@ -87,7 +88,7 @@ export default function RoutMain() {
             name="About Us" 
             component={Main} 
             options={{
-                drawerIcon:({ color }) => (
+                drawerIcon:() => (
                     <View style={{backgroundColor:'rgb(30,41,59)',borderRadius:5,justifyContent:'center',alignItems:'center',height:50,width:50}}>
                         <Image style={{tintColor:'white',height:'60%',width:'60%'}} source={require('../../assets/images/app-setting/about-icon.svg')}/>
                     </View>
@@ -98,7 +99,7 @@ export default function RoutMain() {
             name="FAQs" 
             component={Config} 
             options={{
-                drawerIcon:({ color }) => ( 
+                drawerIcon:() => ( 
                     <View style={{backgroundColor:'rgb(30,41,59)',borderRadius:5,justifyContent:'center',alignItems:'center',height:50,width:50}}>
                         <Image style={{tintColor:'white',height:'60%',width:'60%'}} source={require('../../assets/images/app-setting/faq-icon.svg')}/>
                     </View>
@@ -107,9 +108,9 @@ export default function RoutMain() {
             />
         <Drawer.Screen 
             name="Sign out" 
-            component={Config} 
+            component={RouteLoggs} 
             options={{
-                drawerIcon:({ color }) => ( 
+                drawerIcon:() => ( 
                     <View style={{backgroundColor:'rgb(30,41,59)',borderRadius:5,justifyContent:'center',alignItems:'center',height:50,width:50}}>
                         <Image style={{tintColor:'white',height:'60%',width:'60%'}} source={require('../../assets/images/app-setting/sign-out.svg')}/>
                     </View>

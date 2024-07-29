@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, ScrollView } from 'react-native';
 
-import MainFlat1 from '../components/MainComponetns/MainFlat1/MainFlat1'
+import MainFlat1 from '../components/MainComponetns/MainFlat1/MainFlat1';
 import MainCategoris from '../components/MainComponetns/MainCategoris/MainCategoris'
 import MainDashBoard from '../components/MainComponetns/MainDashBoard/MainDashBoard';
 import MainFlat2 from '../components/MainComponetns/MainFlat2/MainFlat2';
@@ -14,10 +14,9 @@ const style = StyleSheet.create({
   contAll: {
     flex: 1
   }
-
 });
 
-function Main({ navigation }) {
+function Main() {
 
   return (
     <ScrollView style={style.contAll}>

@@ -1,8 +1,9 @@
 
-import { StyleSheet , ImageBackground , Text, View , ScrollView , Image ,TouchableOpacity } from 'react-native';
 import React from 'react';
-import Header from '../components/Header/Header';
-
+import { useState , useEffect } from 'react';
+import { StyleSheet , ImageBackground , Text, View , ScrollView , Image ,TouchableOpacity } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { jwtDecode } from 'jwt-decode';
 
 const style = StyleSheet.create({
   scroll:{
@@ -111,7 +112,9 @@ const style = StyleSheet.create({
   }
 })
 
-function UserView({navigation}) {
+function UserView({ navigation }) {
+
+  const [dataUser,setDataUser] = useState('')
 
   const method_pay =[
     require('../../assets/images/payment-method/ApplePay.png'),
@@ -122,28 +125,70 @@ function UserView({navigation}) {
     require('../../assets/images/payment-method/APAY.png'),   
   ]
   
+  const decodeToken = async () => {
+    try {
+      const token = await AsyncStorage.getItem('token');
+      const decoded = jwtDecode(token);
+      setDataUser(decoded.email)
+    } catch (error) {
+      console.error('Error decoding token:', error);
+      return null;
+    }
+  };
+
+  const loadDataUser = async (usermail) => {
+    try {
+      const response = await fetch('http://localhost:3001/user/load', {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json',
+      },
+        body: JSON.stringify({email:usermail}),
+      })
+      .then(response => response.json())
+      .then(data => setDataUser(data))
+      .catch(e => console.log(e));
+      } catch (error) {
+        console.error('Error:', error);
+      }
+  };
+
+  useEffect(()=>{
+    const step1 = async () => {
+      try {
+        const token = await AsyncStorage.getItem('token');
+        const decoded = jwtDecode(token);
+        loadDataUser(decoded.email)
+      } catch (error) {
+        console.error('Error decoding token:', error);
+        return null;
+      }
+    }
+    step1();
+  },[])
+
+
   return (
     <>
       <ScrollView style={style.scroll}>
-        <Header />
         {/* Seccion de etiqueta de perfil */}
 
         <View style={style.contAllInfoUp}>
           <View style={style.contPhotoPerfil}>
             <ImageBackground style={style.photoPerfil} source={require('../../assets/images/category-page/category-1.png')} />
-            <TouchableOpacity style={style.buttNewPhoto}>
+            <TouchableOpacity style={style.buttNewPhoto} onPress={()=>decodeToken()}>
               <Image style={style.newPhoto} source={require('../../assets/gallary-icon.svg')} />
             </TouchableOpacity>
           </View>
           <View>
             <Text style={style.textName}>
-              Alisha Parker
+              {dataUser ? dataUser.name : 'Loading....'}
             </Text>
             <Text style={style.textContactData}>
-              Alishaparker@mail.com
+            {dataUser ? dataUser.email : 'Loading....'}
             </Text>
-            <Text style={style.textContactData}>
-              +012 3456 7899
+            <Text style={style.textContactData} onPress={()=>console.log(dataUser)}>
+              {dataUser ? dataUser.phonenumber : 'Loading....'}
             </Text>
           </View>
         </View>
@@ -198,7 +243,7 @@ function UserView({navigation}) {
         <View style={style.contAllButts}>
           {method_pay.map((item,index) => (
             <TouchableOpacity style={style.buttsPayments} onPress={()=>navigation.navigate('PayUser',{ select:index})} key={item}>
-              <View style={style.contphotoPaymens}>
+              <View style={style.contphotoPaymens} >
                 <Image style={style.imageButts} source={item} />
               </View>
             </TouchableOpacity>
@@ -211,20 +256,3 @@ function UserView({navigation}) {
 }
 
 export default UserView
-
-
-// Componente UserView
-
-// El componente UserView recibe una prop navigation que se utiliza para navegar a otras pantallas.
-
-// Sección de perfil
-
-// La sección de perfil contiene un contenedor contAllInfoUp que muestra la información del perfil del usuario, incluyendo una imagen de perfil, nombre, correo electrónico y número de teléfono. La imagen de perfil se muestra en un contenedor contPhotoPerfil con un botón buttNewPhoto para cambiar la imagen.
-
-// Sección de pagos y datos
-
-// La sección de pagos y datos contiene un contenedor contAllPays que muestra información sobre la billetera del usuario, incluyendo el saldo y la dirección. También se muestra una sección de pagos que lista los métodos de pago disponibles.
-
-// Métodos de pago
-
-// Se define un array method_pay que contiene las imágenes de los métodos de pago disponibles (Apple Pay, Google Pay, Visa, PayPal, Mastercard y APAY). Luego, se utiliza un map para renderizar cada método de pago como un botón TouchableOpacity con una imagen y un texto. Cuando se presiona un botón, se navega a la pantalla PayUser con la opción seleccionada

@@ -9,8 +9,12 @@ const Stack = createStackNavigator();
 function RouteLoggs() {
   return (
     <Stack.Navigator initialRouteName="SignIn" screenOptions={{headerShown:false}}>
-        <Stack.Screen name="SignUp" component={(props)=> <SignUp props={props}/>} />
-        <Stack.Screen name="SignIn" component={(props)=> <SignIn props={props}/>} />
+      <Stack.Screen name="SignUp">
+        {({ navigation}) =>  <SignUp navigation={navigation}/>}
+      </Stack.Screen>
+      <Stack.Screen name="SignIn">
+        {({ navigation}) => <SignIn navigation={navigation}/>}
+      </Stack.Screen>
     </Stack.Navigator>
   )
 }

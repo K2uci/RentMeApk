@@ -1,5 +1,6 @@
-import { StyleSheet , Text , TextInput , ScrollView , View , TouchableOpacity , CheckBox } from 'react-native';
 import React from 'react';
+import { useState } from 'react';
+import { StyleSheet , Text , TextInput , ScrollView , View , TouchableOpacity , CheckBox } from 'react-native';
 
 const style = StyleSheet.create({
   contenedor:{
@@ -61,19 +62,48 @@ const style = StyleSheet.create({
     fontSize:20,
   },
   text_aux2:{
-    fontSize:18,
+    fontSize:15,
     color:'rgb(126, 126, 129)',
   },
   text_aux3:{
+    fontSize:15,
+    // color:'rgb(150, 150, 150)',
     color:'#0EA5E9',
     marginLeft: 5,
-    fontSize:18,
-    // color:'rgb(100, 100, 100)',
     fontWeight:600,
   },
 })
 
-const SignUp = ({ props }) => {
+const SignUp = ({ navigation }) => {
+
+  const [username,setUsername] = useState('');
+  const [password,setPassword] = useState('');
+  const [email,setEmail] = useState('');
+  const [phone,setPhone] = useState('');
+
+  const sendRegister = async () => {
+    try {
+      const response = await fetch('http://localhost:3001/user/register', {
+      method: 'POST',
+      headers: {
+      'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ username:username , password:password , email:email , phone:phone }),
+    })
+    .then(response => {
+      if (response.status === 200) {
+        navigation.navigate('SignIn')
+      } else {
+        console.error('bad')//accion para mal registro
+      }
+    })
+
+    .catch(e => console.log(e));
+    } catch (error) {
+        console.error(error);
+    }
+  }
+
   return (
     <ScrollView>
       <View style={style.contenedor}>
@@ -82,22 +112,22 @@ const SignUp = ({ props }) => {
 
         <View style={style.phater}>
           <Text style={style.label}>Full Name</Text>
-          <TextInput style={style.input} placeholder="Aelisha Sm" />
+          <TextInput style={style.input} placeholder="Aelisha Sm" value={username} onChangeText={(text) => setUsername(text)} />
         </View>
 
         <View style={style.phater}>
           <Text style={style.label}>Email</Text>
-          <TextInput style={style.input} placeholder="********" />
+          <TextInput style={style.input} placeholder="********" value={email} onChangeText={(text) => setEmail(text)}/>
         </View>
 
         <View style={style.phater}>
           <Text style={style.label}>Mobile Number</Text>
-          <TextInput style={style.input} placeholder="+1 (234) 567 8899" />
+          <TextInput style={style.input} placeholder="+1 (234) 567 8899" value={phone} onChangeText={(text) => setPhone(text)}/>
         </View>
 
         <View style={style.phater}>
           <Text style={style.label}>Password</Text>
-          <TextInput style={style.input} placeholder="********" />
+          <TextInput style={style.input} placeholder="********" value={password} onChangeText={(text) => setPassword(text)}/>
         </View>
 
         <View style={style.add}>
@@ -108,14 +138,14 @@ const SignUp = ({ props }) => {
           </View>
         </View>
 
-        <TouchableOpacity style={style.butt}>
+        <TouchableOpacity style={style.butt} onPress={()=> sendRegister()}>
           <Text style={style.text_butt}>Sing Up</Text>
         </TouchableOpacity>
 
-        <View style={{ marginTop: 45 }}>
+        <View>
           <Text style={style.text_aux2}>
             Have an account
-            <Text style={style.text_aux3} onPress={()=> props.navigation.navigate('SignIn')}>
+            <Text style={style.text_aux3} onPress={()=> navigation.navigate('SignIn')}>
               Sign In
             </Text>
           </Text>
