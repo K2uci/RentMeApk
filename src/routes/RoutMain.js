@@ -16,7 +16,6 @@ const Drawer = createDrawerNavigator();
 
 export default function RoutMain() {
   return (
-
       <Drawer.Navigator 
         initialRouteName="Home"
         screenOptions={{
@@ -27,7 +26,9 @@ export default function RoutMain() {
             },
             header:({ navigation }) => (
                 <Header navigation={navigation}/>
-            )
+            ),
+            drawerActiveBackgroundColor: 'transparent',
+            drawerActiveTintColor: 'rgba(28, 28, 30, 0.68)'
         }}
         drawerContent={(props) => <Config {...props} />}
         >
@@ -47,7 +48,7 @@ export default function RoutMain() {
             component={ChangePassword} 
             options={{
                 drawerIcon:() => (   
-                <View style={{backgroundColor:'rgb(30,41,59)',borderRadius:5,justifyContent:'center',alignItems:'center',height:50,width:50}}>
+                <View style={{backgroundColor:'rgb(30,41,59)',borderRadius:5,justifyContent:'center',alignItems:'center',height:50,width:50}} >
                     <Image style={{tintColor:'white',height:'60%',width:'60%'}} source={require('../../assets/images/app-setting/password-icon.svg')}/>
                 </View>
                 ),
@@ -105,18 +106,7 @@ export default function RoutMain() {
                     </View>
                   ),
             }}
-            />
-        <Drawer.Screen 
-            name="Sign out" 
-            component={RouteLoggs} 
-            options={{
-                drawerIcon:() => ( 
-                    <View style={{backgroundColor:'rgb(30,41,59)',borderRadius:5,justifyContent:'center',alignItems:'center',height:50,width:50}}>
-                        <Image style={{tintColor:'white',height:'60%',width:'60%'}} source={require('../../assets/images/app-setting/sign-out.svg')}/>
-                    </View>
-                  ),
-            }}
-            />
+        />
       </Drawer.Navigator>
 
   );

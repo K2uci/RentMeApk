@@ -73,7 +73,6 @@ const style = StyleSheet.create({
   },
   text_aux3:{
     fontSize:15,
-    // color:'rgb(150, 150, 150)',
     color:'#0EA5E9',
     marginLeft: 5,
     fontWeight:600,
@@ -94,12 +93,27 @@ const style = StyleSheet.create({
     width:30,
     height:30,
   },
+  contWrongDesactive:{
+    display:'none'
+  },
+  contWrongActive:{
+    flexDirection:'row',
+  },
+  wrongText:{
+    color:'rgb(250,0,0)',
+    marginHorizontal:5,
+  },
+  wrongPhoto:{
+    width:10,
+    height:10,
+  }
 })
 
 const SignIn = ({ navigation }) => {
 
   const [usermail,setUsermail] = useState('');
   const [password,setPassword] = useState('');
+  const [wrong,setWrong] = useState(false);
 
   const createToken = async (token) => {
     try {
@@ -122,9 +136,10 @@ const SignIn = ({ navigation }) => {
       .then(data => {
         if (data.token) {//existe el usuario
           createToken(data.token)
+          setWrong(false)
           navigation.navigate('Home')
         } else {// no existe el usuario
-            
+          setWrong(true)
         }
       })
       .catch(e => console.log(e));
@@ -151,6 +166,11 @@ const SignIn = ({ navigation }) => {
     <View style={style.contenedor}>
       <Text style={style.title}>Bienvenidos</Text>
       <Text style={style.titleaux}>Iniciar sesión para continuar</Text>
+      <View style={wrong ? style.contWrongActive:style.contWrongDesactive}>
+        <Image style={style.wrongPhoto} source={require('../../assets/images/sign-in-screen/wrong.png')} /> 
+        <Text style={style.wrongText}>Usuario o contrasena incorrectos</Text>
+        <Image style={style.wrongPhoto} source={require('../../assets/images/sign-in-screen/wrong.png')} /> 
+      </View>
       <View style={style.phater}>
         <Text style={style.label}>Email</Text>
         <TextInput style={style.input} value={usermail} onChangeText={(text) => setUsermail(text)} placeholder="yourname@gmail.com"/>       
@@ -181,13 +201,13 @@ const SignIn = ({ navigation }) => {
 
       <View style={style.cont_photo}>
         <View style={style.cont_aux_photo}>
-          <Image style={style.photo} source={require('../../assets/icons8-logo-de-google-50.png')} /> 
+          <Image style={style.photo} source={require('../../assets/images/sign-in-screen/google.png')} /> 
         </View>
         <View style={style.cont_aux_photo}>
-          <Image style={style.photo} source={require('../../assets/icons8-facebook-50.png')} />
+          <Image style={style.photo} source={require('../../assets/images/sign-in-screen/facebook.png')} />
         </View>
         <View style={style.cont_aux_photo}>
-          <Image style={style.photo} source={require('../../assets/icons8-mac-os-50.png')} /> 
+          <Image style={style.photo} source={require('../../assets/images/sign-in-screen/apple.png')} /> 
         </View>
       </View>
       <View style={{marginTop:45}}>

@@ -176,7 +176,7 @@ function UserView({ navigation }) {
         <View style={style.contAllInfoUp}>
           <View style={style.contPhotoPerfil}>
             <ImageBackground style={style.photoPerfil} source={require('../../assets/images/category-page/category-1.png')} />
-            <TouchableOpacity style={style.buttNewPhoto} onPress={()=>decodeToken()}>
+            <TouchableOpacity style={style.buttNewPhoto}>
               <Image style={style.newPhoto} source={require('../../assets/gallary-icon.svg')} />
             </TouchableOpacity>
           </View>

@@ -51,7 +51,7 @@ function MainDashBoard() {
         <View style={style.contInfo}>
             <Text style={style.textInfo1}>
                 UP TO 20% OFF
-            </Text>h
+            </Text>
             <Text style={style.textInfo2}>
                 Descubre Punta del Este
             </Text>

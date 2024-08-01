@@ -114,7 +114,7 @@ const method_pay =[
   require('../../assets/images/payment-method/APAY.png'),   
 ]
 
-function payUser(props) {
+function PayUser(props) {
 
   const [info,setInfo] = useState(['Apple Pay','Enter Apple ID']);
   const [indexSelecction,setIndexSelecction] = useState(props.route.params['select']);
@@ -223,51 +223,4 @@ function payUser(props) {
   )
 }
 
-export default payUser;
-
-// Este es un componente de React Native que renderiza una pantalla de selección de método de pago. A continuación, se proporciona un comentario detallado del código:
-
-// Importaciones
-
-// El componente importa los siguientes módulos:
-
-// React y useState y useEffect desde la biblioteca react.
-// StyleSheet, View, Text, Image, TextInput, TouchableOpacity desde la biblioteca react-native.
-// Estilos
-
-// El componente define un objeto style que contiene estilos para diferentes elementos de la pantalla. Estos estilos se utilizan para dar formato a la pantalla de selección de método de pago.
-
-// Arreglo de imágenes de métodos de pago
-
-// El componente define un arreglo method_pay que contiene imágenes de diferentes métodos de pago (Apple Pay, Google Pay, Visa, PayPal, Mastercard, Amazon Pay).
-
-// Estado del componente
-
-// El componente utiliza dos estados:
-
-// info: un arreglo que contiene información sobre el método de pago seleccionado (nombre del método de pago y texto de placeholder para el input).
-// indexSelecction: un número que indica el índice del método de pago seleccionado.
-// value: un valor que se utiliza para renderizar inputs adicionales dependiendo del método de pago seleccionado.
-// Función targetSelect
-
-// La función targetSelect se ejecuta cuando se selecciona un método de pago. Esta función actualiza el estado info y indexSelecction según el método de pago seleccionado.
-
-// Efecto secundario
-
-// El componente utiliza un efecto secundario (useEffect) para ejecutar la función targetSelect cuando se monta el componente. El efecto secundario también se ejecuta cuando cambia el estado indexSelecction.
-
-// Renderizado
-
-// El componente renderiza la pantalla de selección de método de pago, que consta de:
-
-// Una barra de navegación superior con un botón de regreso y un título.
-// Un texto que indica que se debe seleccionar un método de pago.
-// Un contenedor que contiene imágenes de los métodos de pago. Cada imagen es un botón que, cuando se presiona, ejecuta la función targetSelect con el índice del método de pago correspondiente.
-// Un contenedor que contiene información adicional sobre el método de pago seleccionado, incluyendo un título, un input para ingresar información adicional y un botón para guardar la información.
-// Un botón para guardar la información del método de pago seleccionado.
-// Notas
-
-// El componente utiliza una función targetSelect para actualizar el estado del componente cuando se selecciona un método de pago.
-// El componente utiliza un efecto secundario para ejecutar la función targetSelect cuando se monta el componente.
-// El componente utiliza un estado value para renderizar inputs adicionales dependiendo del método de pago seleccionado.
-// El componente utiliza estilos para dar formato a la pantalla de selección de método de pago
+export default PayUser;
