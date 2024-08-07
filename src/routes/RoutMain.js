@@ -1,12 +1,11 @@
 import * as React from 'react';
 import { View , Image } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import { HeaderCurrency , HeaderPassword , HeaderSelectLanguaje} from '../components/Header/HeaderConfig';
 
 import Header from '../components/Header/Header';
-import { HeaderCurrency , HeaderPassword , HeaderSelectLanguaje} from '../components/Header/HeaderConfig';
 import Config from '../components/Config/Config'
 import Main from '../views/Main';
-import RouteLoggs from './RouteLoggs';
 import ChangePassword  from '../components/ConfigComponents/ChangePassword'
 import ChangeCurrency from '../components/ConfigComponents/ChangeCurrency';
 import ChangeLanguaje from '../components/ConfigComponents/ChangeLanguaje';
@@ -17,12 +16,12 @@ const Drawer = createDrawerNavigator();
 export default function RoutMain() {
   return (
       <Drawer.Navigator 
-        initialRouteName="Home"
+        initialRouteName="Main"
         screenOptions={{
             drawerLabelStyle:{
                 fontSize:16,
                 marginLeft:-20,
-                fontWeight:300,
+                fontWeight:'300',
             },
             header:({ navigation }) => (
                 <Header navigation={navigation}/>
@@ -33,7 +32,7 @@ export default function RoutMain() {
         drawerContent={(props) => <Config {...props} />}
         >
         <Drawer.Screen 
-            name="Home" 
+            name="Main" 
             component={Main}
             options={{
                 drawerIcon:() => (

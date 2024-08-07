@@ -13,7 +13,7 @@ const style = StyleSheet.create({
     },
     textInfo:{
         fontSize:25,
-        fontWeight:600,
+        fontWeight:'600',
         color:'#1E293B',
     },
     textInfoAux:{
@@ -31,7 +31,7 @@ const style = StyleSheet.create({
     },
     buttHeart:{
         backgroundColor:'white',
-        borderRadius:'50%',
+        borderRadius:100,
         height:30,
         width:30,
         margin:10,
@@ -44,13 +44,13 @@ const style = StyleSheet.create({
     },
     textInfoLastName:{
         fontSize:18,
-        fontWeight:600,
+        fontWeight:'600',
         marginVertical:6,
         color:'#1E293B',
     },
     textInfoPrice:{
         fontSize:16,
-        fontWeight:200,
+        fontWeight:'200',
         color:'#1E293B',
     },
     contAllPanel:{

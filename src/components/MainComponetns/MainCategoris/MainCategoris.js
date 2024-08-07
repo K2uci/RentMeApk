@@ -13,7 +13,7 @@ const style = StyleSheet.create({
     },
     textCategori:{
         fontSize:25,
-        fontWeight:600,
+        fontWeight:'600',
         color:'#1E293B',
     },
     textSeeAll:{

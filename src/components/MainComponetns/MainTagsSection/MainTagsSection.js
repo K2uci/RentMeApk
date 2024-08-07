@@ -1,4 +1,4 @@
-import React from 'react'
+import React , { useState , useEffect } from 'react';
 import { StyleSheet , View , Text , Image , TouchableOpacity , FlatList , ImageBackground } from 'react-native'
 
 
@@ -47,7 +47,7 @@ const style = StyleSheet.create({
   }, 
   buttHeart:{
     backgroundColor:'white',
-    borderRadius:'50%',
+    borderRadius:100,
     height:30,
     width:30,
     margin:10,
@@ -85,12 +85,14 @@ const style = StyleSheet.create({
 
 
 const renderImage = ({ item }) => (
+  //  title , description , price , photo , disponible
     <View style={style.contAllPanel}>
       <View style={{height:160,marginBottom:10}}>
-        <ImageBackground style={style.BackgroundPanel} source={item.photo}>
+        <ImageBackground style={style.BackgroundPanel} source={{ uri: item.photo }}>
           <TouchableOpacity style={style.buttTags}>
-                <Text style={{color:'#666666'}}>
-                    {item.info}
+                <Text style={{color:'#666666'}} >
+                    {/* {item.title} */}
+                    Home
                 </Text>
             </TouchableOpacity>
           <TouchableOpacity style={style.buttHeart}>
@@ -98,62 +100,69 @@ const renderImage = ({ item }) => (
           </TouchableOpacity>
         </ImageBackground>    
       </View>
-      <Text style={{fontSize:18,marginBottom:10}}>
-        {item.name}
+      <Text style={{fontSize:18}}>
+        {item.title}
       </Text>
-      <Text style={{fontWeight:100,}}>
-        ${item.price} 
+      <Text style={{fontWeight:'100'}}>
+        {item.price} 
       </Text>
     </View>
 );
 
 
 function MainTagsSection() {
+  const [listRents,setListRents] = useState([])
 
-    const infoPanel = [
-        {
-          'name' : 'Apartamento punta del este',
-          'photo' : require('../../../../assets/images/homepage/sort-1.png'),
-          'price' : '123#',
-          'eval' : 3,
-          'info' : 'Home'
-        },
-        {
-          'name' : 'Hotel Maldonado ',
-          'photo' : require('../../../../assets/images/homepage/sort-2.png'),
-          'price' : '123#',
-          'eval' : 3,
-          'info' : 'Home'
-        },
-        {
-          'name' : 'Chacra Pinares',
-          'photo' : require('../../../../assets/images/homepage/sort-3.png'),
-          'price' : '123#',
-          'eval' : 3,
-          'info' : 'Home'
-        },
-        {
-          'name' : 'Hermoso Apartamento',
-          'photo' : require('../../../../assets/images/homepage/sort-4.png'),
-          'price' : '123#',
-          'eval' : 3,
-          'info' : 'Home'
-        },
-        {
-          'name' : 'Casa sobre la Playa',
-          'photo' : require('../../../../assets/images/homepage/sort-5.png'),
-          'price' : '123#',
-          'eval' : 3,
-          'info' : 'Home'
-        },
-        {
-          'name' : 'Habitacion para 1',
-          'photo' : require('../../../../assets/images/homepage/sort-6.png'),
-          'price' : '123#',
-          'eval' : 3,
-          'info' : 'Home'
-        },
-    ];
+  const infoPanel = [
+      {
+        'name' : 'Apartamento punta del este',
+        'photo' : require('../../../../assets/images/homepage/sort-1.png'),
+        'price' : '123#',
+        'eval' : 3,
+        'info' : 'Home'
+      },
+      {
+        'name' : 'Hotel Maldonado ',
+        'photo' : require('../../../../assets/images/homepage/sort-2.png'),
+        'price' : '123#',
+        'eval' : 3,
+        'info' : 'Home'
+      },
+      {
+        'name' : 'Chacra Pinares',
+        'photo' : require('../../../../assets/images/homepage/sort-3.png'),
+        'price' : '123#',
+        'eval' : 3,
+        'info' : 'Home'
+      },
+      {
+        'name' : 'Hermoso Apartamento',
+        'photo' : require('../../../../assets/images/homepage/sort-4.png'),
+        'price' : '123#',
+        'eval' : 3,
+        'info' : 'Home'
+      },
+      {
+        'name' : 'Casa sobre la Playa',
+        'photo' : require('../../../../assets/images/homepage/sort-5.png'),
+        'price' : '123#',
+        'eval' : 3,
+        'info' : 'Home'
+      },
+      {
+        'name' : 'Habitacion para 1',
+        'photo' : require('../../../../assets/images/homepage/sort-6.png'),
+        'price' : '123#',
+        'eval' : 3,
+        'info' : 'Home'
+      },
+  ];
+
+  useEffect(()=>{
+    fetch('http://localhost:3001/publication/load')
+    .then(res => res.json())
+    .then(data => setListRents(data))
+  },[])
 
   return (
     <View>  
@@ -194,7 +203,7 @@ function MainTagsSection() {
           showsHorizontalScrollIndicator={false}
           contentContainerStyle={{ flexGrow: 1, justifyContent: 'center' }}
           columnWrapperStyle={{ justifyContent: 'space-evenly' }} 
-          data={infoPanel}
+          data={listRents}
           decelerationRate={0}
           numColumns={2}
           renderItem={renderImage}

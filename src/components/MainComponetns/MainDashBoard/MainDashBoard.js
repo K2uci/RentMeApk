@@ -2,9 +2,8 @@ import React from 'react'
 import { StyleSheet , View , Text , TouchableOpacity , ImageBackground } from 'react-native'
 
 const style = StyleSheet.create({
-    
     contAll:{
-        height:'20vh',
+        height:200,
         marginTop:20,
     },
     imageBackground:{
@@ -23,7 +22,7 @@ const style = StyleSheet.create({
     textInfo2:{
         width:'50%',
         fontSize:16,
-        fontWeight:600,
+        fontWeight:'600',
         marginVertical:10,
     },
     butt:{
@@ -35,7 +34,7 @@ const style = StyleSheet.create({
         },
     textButt:{
         fontSize:16,
-        fontWeight:600,
+        fontWeight:'600',
         textAlign:'center',
         justifyContent:'flex-end',
         color:'rgb(250 , 250 , 250)',       

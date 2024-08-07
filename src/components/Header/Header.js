@@ -24,7 +24,7 @@ const style = StyleSheet.create({
         width:'100%',
     },
     text:{
-        fontWeight:900,
+        fontWeight:'900',
         color:'rgb(14 , 165 , 233)',
         fontSize:18,
     }

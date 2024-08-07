@@ -1,6 +1,5 @@
-import React from 'react';
-import { useState , useEffect } from 'react';
-import { StyleSheet, Text, View , Pressable , TextInput , CheckBox ,Image  } from 'react-native';
+import React , { useState } from 'react';
+import { StyleSheet, Text, View , Pressable , TextInput , Image  } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const style = StyleSheet.create({
@@ -13,14 +12,13 @@ const style = StyleSheet.create({
   title:{
     width:'85%',
     fontSize:35,
-    fontWeight:600,
+    fontWeight:'600',
     paddingBottom:10,
   },
   titleaux:{
     color:'rgb(126, 126, 129)',
     width:'85%',
     fontSize:15,
-    fontWeight:10,
     marginBottom:30,  
   },
   phater:{
@@ -32,7 +30,7 @@ const style = StyleSheet.create({
     color:'rgb(126, 126, 129)',
     width:'85%',
     marginBottom:5,
-    fontWeight:600,
+    fontWeight:'600',
     letterSpacing:1,
   },
   input:{
@@ -59,7 +57,7 @@ const style = StyleSheet.create({
   },
   text_butt:{
     color:"rgb(255, 255, 255)",
-    fontWeight:600,
+    fontWeight:'600',
     fontSize:20,
   },
   text_aux1:{
@@ -75,7 +73,8 @@ const style = StyleSheet.create({
     fontSize:15,
     color:'#0EA5E9',
     marginLeft: 5,
-    fontWeight:600,
+    fontWeight:'600',
+    paddingLeft:10
   },
   cont_photo:{
     width:'50%',
@@ -125,7 +124,7 @@ const SignIn = ({ navigation }) => {
 
   const sendDataUser = async (usermailSend,passwordSend) => {
     try {
-      const response = await fetch('http://localhost:3001/user/loggin', {
+      await fetch('http://localhost:3001/user/loggin', {
         method: 'POST',
         headers: {
         'Content-Type': 'application/json',
@@ -134,33 +133,19 @@ const SignIn = ({ navigation }) => {
       })
       .then(response => response.json())
       .then(data => {
-        if (data.token) {//existe el usuario
+        if (data.token) {
           createToken(data.token)
           setWrong(false)
           navigation.navigate('Home')
-        } else {// no existe el usuario
+        } else {
           setWrong(true)
         }
       })
-      .catch(e => console.log(e));
+      .catch(e => console.error(e));
       } catch (error) {
         console.error('Error:', error);
       }
   };
-
-  useEffect(()=>{
-    const logginByDefault = async () =>{
-      try {
-        const token = await AsyncStorage.getItem('token');
-        if (token) {
-          navigation.navigate('Home')
-        }
-      } catch (error) {
-        return null
-      }
-    }
-    logginByDefault()
-  },[])
 
   return (
     <View style={style.contenedor}>
@@ -183,7 +168,7 @@ const SignIn = ({ navigation }) => {
 
       <View style={style.add}>
         <View style={{flexDirection:'row'}}>
-          <CheckBox/>
+          {/* <CheckBox/> */}
           <Text style={{color:'rgb(126, 126, 129)'}} >Remember Me</Text>           
         </View>
         <View>

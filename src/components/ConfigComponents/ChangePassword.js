@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
         width:'100%',
         marginBottom:5,
         fontSize:12,
-        fontWeight:400
+        fontWeight:'400'
     },
     contAllInput:{
         flexDirection:'row',

@@ -46,7 +46,7 @@ function ChangeCurrency() {
         <View style={styles.contItems} key={item[1]}>
             <View style={{flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
                 <Image style={{resizeMode:'contain'}} source={item[0]}/>
-                <Text style={{fontWeight:600,color:'#666666',marginLeft:10}}>
+                <Text style={{fontWeight:'600',color:'#666666',marginLeft:10}}>
                     {item[1]}
                 </Text>
             </View>

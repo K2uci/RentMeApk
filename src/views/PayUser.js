@@ -16,7 +16,7 @@ const style = StyleSheet.create({
     borderBottomColor:'rgb(200,200,200)'
   },
   mainText:{
-    fontWeight:900,
+    fontWeight:'900',
     color:'rgb(14 , 165 , 233)',
     fontSize:18,
   },
@@ -77,7 +77,7 @@ const style = StyleSheet.create({
   title:{
     color:'#1E293B',
     fontSize:16,
-    fontWeight:600,
+    fontWeight:'600',
   },
   buttAuxSave:{
     justifyContent:'space-between',
@@ -100,7 +100,7 @@ const style = StyleSheet.create({
   textSaveButt:{
     color:'white',
     fontSize:20,
-    fontWeight:600,
+    fontWeight:'600',
     textAlign:'center',
   }
 })

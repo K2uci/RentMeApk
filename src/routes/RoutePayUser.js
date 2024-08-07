@@ -3,20 +3,20 @@ import { createStackNavigator } from '@react-navigation/stack';
 import PayUser from '../views/PayUser'
 import UserView from '../views/UserView';
 
-const Stack = createStackNavigator();
+const StackPayUser = createStackNavigator();
 
 function RoutePayUser() {
   
   return (
-    <Stack.Navigator
+    <StackPayUser.Navigator
     initialRouteName='UserView'
     screenOptions={{
       headerShown:false
     }}
     >
-      <Stack.Screen name="PayUser" component={PayUser} />
-      <Stack.Screen name="UserView" component={UserView} />
-    </Stack.Navigator>
+      <StackPayUser.Screen name="PayUser" component={PayUser} />
+      <StackPayUser.Screen name="UserView" component={UserView} />
+    </StackPayUser.Navigator>
   );
 }
 

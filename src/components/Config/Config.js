@@ -46,9 +46,10 @@ const style = StyleSheet.create({
   text:{
     display:'flex',
     alignItems:'center',
+    justifyContent:'center',
     marginLeft:12,
     fontSize:16,
-    fontWeight:300,
+    fontWeight:'300',
     color:'rgba(28, 28, 30, 0.68)'
   }
 })
@@ -56,8 +57,8 @@ const style = StyleSheet.create({
 function Config(props) {
 
   const logOut = () => {
-    AsyncStorage.removeItem('token')
-    props.navigation.navigate('Loggin')
+    AsyncStorage.removeItem('token');
+    props.navigation.navigate('Loggin');
   }
 
   return (

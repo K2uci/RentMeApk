@@ -1,10 +1,15 @@
 {
   "expo": {
-    "name": "Oficial",
-    "slug": "Oficial",
+    "name": "RentME",
+    "slug": "RentME",
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
+
+    "developmentServer": {
+      "url": "http://localhost:3001"
+    },
+
     "splash": {
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
@@ -15,9 +20,14 @@
     "android": {
       "adaptiveIcon": {
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.k2suci.RentME"
     },
-    "web": {
+    "web": {},
+    "extra": {
+      "eas": {
+        "projectId": "c6389634-8d10-466a-a3a7-73edc849a855"
+      }
     }
   }
 }

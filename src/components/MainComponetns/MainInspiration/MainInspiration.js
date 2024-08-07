@@ -12,7 +12,7 @@ const style = StyleSheet.create({
     },
     textTitle:{
         fontSize:25,
-        fontWeight:600,
+        fontWeight:'600',
         color:'#1E293B',
     },
     contAllPanle:{
@@ -30,12 +30,12 @@ const style = StyleSheet.create({
     },
     textInfo:{
         fontSize:19,
-        fontWeight:600,
+        fontWeight:'600',
         color:'rgb(250,250,250)',
     },
     textName:{
         fontSize:22,
-        fontWeight:600,
+        fontWeight:'600',
         marginVertical:6,
         color:'rgb(250,250,250)',
     },

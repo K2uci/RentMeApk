@@ -45,7 +45,7 @@ function ChangeLanguaje() {
       {infoSelect.map((item)=>( 
         <View style={styles.contItems} key={item}>
             <View style={{flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
-                <Text style={{fontWeight:600,color:'#666666',marginLeft:10}}>
+                <Text style={{fontWeight:'600',color:'#666666',marginLeft:10}}>
                     {item}
                 </Text>
             </View>

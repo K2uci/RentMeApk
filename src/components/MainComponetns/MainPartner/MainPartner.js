@@ -13,7 +13,7 @@ const style = StyleSheet.create({
     },
     textName:{
         fontSize:25,
-        fontWeight:600,
+        fontWeight:'600',
         color:'#1E293B',
     },
     textAux:{
@@ -34,14 +34,14 @@ const style = StyleSheet.create({
     contPhoto:{
         width:70,
         height:70,
-        borderRadius:'50%',
+        borderRadius:100,
         marginHorizontal:12,
         overflow:'hidden',
     },
     textNamePanle:{
         color: '#1E293B',
         fontSize:20,
-        fontWeight:600,
+        fontWeight:'600',
         marginBottom:5,
     }   
 })
@@ -56,7 +56,7 @@ const renderImage = ({ item }) => (
         <Text style={style.textNamePanle}>
           {item.partnerName}
         </Text>
-        <Text style={{color:'#1E293B',fontWeight:100}}>
+        <Text style={{color:'#1E293B',fontWeight:'100'}}>
           {item.partnersAddres} 
         </Text>          
       </View>

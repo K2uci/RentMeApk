@@ -1,10 +1,12 @@
 import React from 'react';
 import { Image } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import Main from '../views/Main'
-import Prefers from '../views/Prefers'
+
+import Prefers from '../views/Prefers';
 import RoutePayUser from '../routes/RoutePayUser';
-import RoutMain from '../routes/RoutMain'
+import RoutMain from '../routes/RoutMain';
+
+import { RouteAddPublic } from './RouteAddPublic';
 
 const Tab = createBottomTabNavigator();
 
@@ -16,9 +18,10 @@ function RouteButtsNav() {
     > 
       <Tab.Screen
         name="Main"
-        component={Main}
+        // component={RouteAddPublic}
+        component={Prefers}
         options={{ 
-          tabBarAccessibilityLabel:false,
+          tabBarAccessibilityLabel:'false',
           headerShown:false,
           tabBarLabel: 'Main',
           tabBarIcon: ({ color }) => (

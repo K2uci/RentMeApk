@@ -6,13 +6,14 @@ const style = StyleSheet.create({
     contAll:{
         flexDirection:'row',
         height:45,
-        justifyContent:'center',
+        justifyContent:'space-evenly',
         alignItems:'center', 
     },
     contButts:{
         flex:1,
         flexDirection:'row',
-        height:'100%', 
+        alignItems:'center',
+        height:50, 
     },
     butts:{
         marginTop:10,
@@ -25,7 +26,7 @@ const style = StyleSheet.create({
         alignItems:'center',
         justifyContent:'center',
         flex:1,
-        fontWeight:600,
+        fontWeight:'600',
         color:'rgb(14 , 165 , 233)',
         fontSize:14,
     }
@@ -70,7 +71,7 @@ function HeaderSelectLanguaje({ navigation }) {
         <View style={style.contAll}>
             <View style={style.contButts} >
                 <TouchableOpacity style={style.butts} onPress={()=>(navigation.goBack())}>
-                    <Image style={{flex:1}} source={require('../../../assets/images/forget-password-screen/back-btn.svg')}/>
+                    <Image style={{height:30,width:30}} tintColor="#FF0000" source={require('../../../assets/images/forget-password-screen/back-btn.svg')}/>
                 </TouchableOpacity>
                 <Text style={style.text}>
                     CHANGE LANGUAGE

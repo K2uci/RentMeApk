@@ -1,6 +1,6 @@
 import React from 'react'
 import { useEffect , useState } from 'react';
-import { StyleSheet , View , Text , TouchableOpacity , ImageBackground , FlatList } from 'react-native'
+import { StyleSheet , View , Text , Pressable , ImageBackground , FlatList } from 'react-native'
 
 
 const style = StyleSheet.create({
@@ -17,7 +17,7 @@ const style = StyleSheet.create({
         height:100,
         marginBottom:20,
         fontSize:38,
-        fontWeight:600,
+        fontWeight:'600',
     },
     butt:{
         width:140,
@@ -28,7 +28,7 @@ const style = StyleSheet.create({
     },
     textButt:{
         fontSize:16,
-        fontWeight:600,
+        fontWeight:'600',
         textAlign:'center',
         justifyContent:'flex-end',
         color:'rgb(250 , 250 , 250)',
@@ -41,11 +41,11 @@ const renderImagePanel = ({ item }) => (
         <Text style={style.textInfo}>
           {item.title}
         </Text>
-        <TouchableOpacity style={style.butt}>
+        <Pressable style={style.butt}>
           <Text style={style.textButt}>
             Ver Propuesta
           </Text>            
-        </TouchableOpacity>
+        </Pressable>
       </View>
     </ImageBackground>
 
@@ -85,7 +85,7 @@ function mainFlat1() {
         showsHorizontalScrollIndicator={false}
         data={imagesPanel}
         renderItem={renderImagePanel}
-        keyExtractor={(witem, index) => index.toString()}
+        keyExtractor={(item, index) => index.toString()}
       /> : <Text>Loading</Text>
       }
 

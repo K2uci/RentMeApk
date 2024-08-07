@@ -1,25 +1,24 @@
 import React from 'react';
 import { useState } from 'react';
-import { StyleSheet , Text , TextInput , ScrollView , View , TouchableOpacity , CheckBox } from 'react-native';
+import { StyleSheet , Text , TextInput , ScrollView , View , TouchableOpacity } from 'react-native';
 
 const style = StyleSheet.create({
   contenedor:{
     flex:1,
     alignItems:'center',
     marginRight:1,
-    paddingTop:60,
+    paddingTop:35,
   },
   title:{
     width:'85%',
     fontSize:30,
-    fontWeight:600,
+    fontWeight:'600',
     paddingBottom:10,
   },
   titleaux:{
     color:'rgb(126, 126, 129)',
     width:'85%',
     fontSize:19,
-    fontWeight:10,
     marginBottom:30,  
   },
   phater:{
@@ -31,7 +30,7 @@ const style = StyleSheet.create({
     color:'rgb(126, 126, 129)',
     width:'85%',
     marginBottom:5,
-    fontWeight:600,
+    fontWeight:'600',
     letterSpacing:1,
   },
   input:{
@@ -58,7 +57,7 @@ const style = StyleSheet.create({
   },
   text_butt:{
     color:"rgb(255, 255, 255)",
-    fontWeight:600,
+    fontWeight:'600',
     fontSize:20,
   },
   text_aux2:{
@@ -67,10 +66,9 @@ const style = StyleSheet.create({
   },
   text_aux3:{
     fontSize:15,
-    // color:'rgb(150, 150, 150)',
     color:'#0EA5E9',
     marginLeft: 5,
-    fontWeight:600,
+    fontWeight:'600',
   },
 })
 
@@ -93,12 +91,9 @@ const SignUp = ({ navigation }) => {
     .then(response => {
       if (response.status === 200) {
         navigation.navigate('SignIn')
-      } else {
-        console.error('bad')//accion para mal registro
       }
     })
-
-    .catch(e => console.log(e));
+    .catch(e => console.error(e));
     } catch (error) {
         console.error(error);
     }
@@ -132,7 +127,7 @@ const SignUp = ({ navigation }) => {
 
         <View style={style.add}>
           <View style={{ flexDirection: 'row' }}>
-            <CheckBox />
+            {/* <CheckBox /> */}
             <Text style={{ color: 'rgb(126, 126, 129)' }}>I agree to the </Text>
             <Text style={{ textDecorationLine: 'underline' }}>Terms of Service</Text>
           </View>

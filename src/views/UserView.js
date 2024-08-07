@@ -24,7 +24,7 @@ const style = StyleSheet.create({
   photoPerfil:{
     width:'100%',
     height:'100%',
-    borderRadius:'50%',
+    borderRadius:100,
     overflow:'hidden',
   },
   buttNewPhoto:{
@@ -36,7 +36,7 @@ const style = StyleSheet.create({
     right:0,
     justifyContent:'center',
     alignItems:'center',
-    borderRadius:'50%',
+    borderRadius:100,
     overflow:'hidden',
   },
   newPhoto:{
@@ -45,7 +45,7 @@ const style = StyleSheet.create({
   },
   textName:{
     fontSize:20,
-    fontWeight:900,
+    fontWeight:'900',
     paddingBottom:16,
   },
   textContactData:{
@@ -125,17 +125,6 @@ function UserView({ navigation }) {
     require('../../assets/images/payment-method/APAY.png'),   
   ]
   
-  const decodeToken = async () => {
-    try {
-      const token = await AsyncStorage.getItem('token');
-      const decoded = jwtDecode(token);
-      setDataUser(decoded.email)
-    } catch (error) {
-      console.error('Error decoding token:', error);
-      return null;
-    }
-  };
-
   const loadDataUser = async (usermail) => {
     try {
       const response = await fetch('http://localhost:3001/user/load', {
@@ -197,7 +186,7 @@ function UserView({ navigation }) {
 
       <View style={style.contAllPays}>
         <View style={style.headerPays}>
-          <Text style={{fontSize:16,fontWeight:600}}>
+          <Text style={{fontSize:16,fontWeight:'600'}}>
             BW Wallet
           </Text>
           <Text style={{color:'rgb(102,102,102)',fontSize:14}}>

@@ -45,8 +45,8 @@ const style = StyleSheet.create({
         overflow:'hidden',
     },
     contAllView:{
-        borderTopLeftRadius:'35%',
-        borderTopRightRadius:'35%',
+        borderTopLeftRadius:35,
+        borderTopRightRadius:35,
         width:150,
         marginLeft:20,
         paddingBottom:15,
@@ -76,7 +76,7 @@ const style = StyleSheet.create({
     },   
     buttHeart:{
         backgroundColor:'white',
-        borderRadius:'50%',
+        borderRadius:100,
         height:30,
         width:30,
         margin:10,
