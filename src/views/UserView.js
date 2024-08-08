@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useState , useEffect } from 'react';
-import { StyleSheet , ImageBackground , Text, View , ScrollView , Image ,TouchableOpacity } from 'react-native';
+import { StyleSheet , ImageBackground , Text, View , ScrollView , Image , Pressable } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { jwtDecode } from 'jwt-decode';
 
@@ -11,8 +11,7 @@ const style = StyleSheet.create({
   },
   contAllInfoUp:{
     backgroundColor:'rgb(246,248,250)',
-    height:'20vh',
-    width:'100vw',
+    height:200,
     flexDirection:'row',
     alignItems:'center',
   },
@@ -127,7 +126,7 @@ function UserView({ navigation }) {
   
   const loadDataUser = async (usermail) => {
     try {
-      const response = await fetch('http://localhost:3001/user/load', {
+      const response = await fetch('http://68.183.98.44:3001/user/load', {
         method: 'POST',
         headers: {
         'Content-Type': 'application/json',
@@ -136,7 +135,7 @@ function UserView({ navigation }) {
       })
       .then(response => response.json())
       .then(data => setDataUser(data))
-      .catch(e => console.log(e));
+      .catch(e => console.error(e));
       } catch (error) {
         console.error('Error:', error);
       }
@@ -156,18 +155,15 @@ function UserView({ navigation }) {
     step1();
   },[])
 
-
   return (
     <>
       <ScrollView style={style.scroll}>
-        {/* Seccion de etiqueta de perfil */}
-
         <View style={style.contAllInfoUp}>
           <View style={style.contPhotoPerfil}>
             <ImageBackground style={style.photoPerfil} source={require('../../assets/images/category-page/category-1.png')} />
-            <TouchableOpacity style={style.buttNewPhoto}>
-              <Image style={style.newPhoto} source={require('../../assets/gallary-icon.svg')} />
-            </TouchableOpacity>
+            <Pressable style={style.buttNewPhoto}>
+              <Image style={style.newPhoto} source={require('../../assets/gallary-icon.png')} />
+            </Pressable>
           </View>
           <View>
             <Text style={style.textName}>
@@ -231,11 +227,11 @@ function UserView({ navigation }) {
 
         <View style={style.contAllButts}>
           {method_pay.map((item,index) => (
-            <TouchableOpacity style={style.buttsPayments} onPress={()=>navigation.navigate('PayUser',{ select:index})} key={item}>
+            <Pressable style={style.buttsPayments} onPress={()=>navigation.navigate('PayUser',{ select:index})} key={item}>
               <View style={style.contphotoPaymens} >
                 <Image style={style.imageButts} source={item} />
               </View>
-            </TouchableOpacity>
+            </Pressable>
           ))}
         </View>
       </View>

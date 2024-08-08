@@ -65,7 +65,7 @@ function Config(props) {
     <DrawerContentScrollView {...props}>
       <View style={style.contHeadInfo}>
         <Pressable onPress={()=>(props.navigation.goBack())}>
-          <Image style={style.photo} source={require('../../../assets/images/search-page/Close-Icon.svg')}/>
+          <Image style={style.photo} source={require('../../../assets/images/search-page/Close-Icon.png')}/>
         </Pressable>
         <Text style={style.accountText}>
           Account
@@ -74,7 +74,7 @@ function Config(props) {
     <DrawerItemList {...props} />
     <Pressable style={style.contButt} onPress={()=>logOut()}>
       <View style={style.contPhotoExit}>
-          <Image style={style.photoExit} source={require('../../../assets/images/app-setting/sign-out.svg')}/>
+          <Image style={style.photoExit} source={require('../../../assets/images/app-setting/sign-out.png')}/>
       </View>
       <Text style={style.text}>
         Sing Out

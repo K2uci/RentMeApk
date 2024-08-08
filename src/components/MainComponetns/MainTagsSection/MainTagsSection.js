@@ -96,7 +96,7 @@ const renderImage = ({ item }) => (
                 </Text>
             </TouchableOpacity>
           <TouchableOpacity style={style.buttHeart}>
-            <Image style={{tintColor:'red',width:'70%',height:'70%'}} source={require('../../../../assets/images/single-product-page/heart.svg')} />
+            <Image style={{tintColor:'red',width:'70%',height:'70%'}} source={require('../../../../assets/images/single-product-page/heart.png')} />
           </TouchableOpacity>
         </ImageBackground>    
       </View>
@@ -111,55 +111,10 @@ const renderImage = ({ item }) => (
 
 
 function MainTagsSection() {
-  const [listRents,setListRents] = useState([])
-
-  const infoPanel = [
-      {
-        'name' : 'Apartamento punta del este',
-        'photo' : require('../../../../assets/images/homepage/sort-1.png'),
-        'price' : '123#',
-        'eval' : 3,
-        'info' : 'Home'
-      },
-      {
-        'name' : 'Hotel Maldonado ',
-        'photo' : require('../../../../assets/images/homepage/sort-2.png'),
-        'price' : '123#',
-        'eval' : 3,
-        'info' : 'Home'
-      },
-      {
-        'name' : 'Chacra Pinares',
-        'photo' : require('../../../../assets/images/homepage/sort-3.png'),
-        'price' : '123#',
-        'eval' : 3,
-        'info' : 'Home'
-      },
-      {
-        'name' : 'Hermoso Apartamento',
-        'photo' : require('../../../../assets/images/homepage/sort-4.png'),
-        'price' : '123#',
-        'eval' : 3,
-        'info' : 'Home'
-      },
-      {
-        'name' : 'Casa sobre la Playa',
-        'photo' : require('../../../../assets/images/homepage/sort-5.png'),
-        'price' : '123#',
-        'eval' : 3,
-        'info' : 'Home'
-      },
-      {
-        'name' : 'Habitacion para 1',
-        'photo' : require('../../../../assets/images/homepage/sort-6.png'),
-        'price' : '123#',
-        'eval' : 3,
-        'info' : 'Home'
-      },
-  ];
+  const [listRents,setListRents] = useState([]);
 
   useEffect(()=>{
-    fetch('http://localhost:3001/publication/load')
+    fetch('http://68.183.98.44:3001/publication/load')
     .then(res => res.json())
     .then(data => setListRents(data))
   },[])
@@ -170,7 +125,7 @@ function MainTagsSection() {
             <View style={style.contButtsLeft}>
                 <TouchableOpacity style={style.buttSort}>
                     <View style={style.contPhotoButts}>
-                        <Image source={require('../../../../assets/images/favourite/sort.svg')} />
+                        <Image source={require('../../../../assets/images/favourite/sort.png')} />
                     </View>
                     <Text style={{color:'white',fontSize:18,fontWeight:'bold'}}>
                         Sort
@@ -178,7 +133,7 @@ function MainTagsSection() {
                 </TouchableOpacity>
                 <TouchableOpacity style={style.buttFilter}>
                     <View style={style.contPhotoButts}>
-                        <Image source={require('../../../../assets/images/favourite/filter.svg')} />                       
+                        <Image source={require('../../../../assets/images/favourite/filter.png')} />                       
                     </View>
                     <Text style={{color:'#666666',fontSize:18,fontWeight:'bold'}}>
                         Filter
@@ -188,12 +143,12 @@ function MainTagsSection() {
             <View style={style.contButtsRigth}>
                 <TouchableOpacity>
                     <View style={style.contPhotoButts}>
-                        <Image source={require('../../../../assets/images/favourite/column.svg')} />                       
+                        <Image source={require('../../../../assets/images/favourite/column.png')} />                       
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity>
                     <View style={style.contPhotoButts}>
-                        <Image source={require('../../../../assets/images/favourite/row.svg')}/>                       
+                        <Image source={require('../../../../assets/images/favourite/row.png')}/>                       
                     </View>
                 </TouchableOpacity>            
             </View>

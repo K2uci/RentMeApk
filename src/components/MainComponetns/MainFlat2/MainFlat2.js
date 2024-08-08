@@ -57,7 +57,7 @@ const style = StyleSheet.create({
         width:250,
         height:300,
         padding:20,  
-    },
+    }
 })
 
 
@@ -66,7 +66,7 @@ const renderImage = ({ item }) => (
       <View style={{height:160,marginBottom:10}}>
         <ImageBackground style={style.panelBAckground} source={item.photo}>
           <TouchableOpacity style={style.buttHeart}>
-            <Image style={{tintColor:'red',width:'70%',height:'70%'}} source={require('../../../../assets/images/single-product-page/heart.svg')} />
+            <Image style={{tintColor:'red',width:'70%',height:'70%'}} source={require('../../../../assets/images/single-product-page/heart.png')} />
           </TouchableOpacity>
         </ImageBackground>    
       </View>
@@ -89,10 +89,10 @@ function MainFlat2() {
   const [photo,setPhoto] = useState([])
 
   useEffect(()=>{
-    fetch('http://localhost:3001/main/loadNeeds')
+    fetch('http://68.183.98.44:3001/main/loadNeeds')
     .then(res => res.json())
     .then(data => setPhoto(data))
-  },[])
+  },[]);
 
     const infoPanel = [
       {
@@ -132,7 +132,7 @@ function MainFlat2() {
                 <Text style={style.textInfoAux}>
                     Ver todo 
                 </Text>
-                <Image style={{width:30,height:30}} source={require('../../../../assets/images/homepage/see-all-icon.svg')} />
+                <Image style={{width:30,height:30}} source={require('../../../../assets/images/homepage/see-all-icon.png')} />
             </View>
         </View>
     

@@ -37,7 +37,7 @@ export default function RoutMain() {
             options={{
                 drawerIcon:() => (
                     <View style={{backgroundColor:'rgb(30,41,59)',borderRadius:5,justifyContent:'center',alignItems:'center',height:50,width:50}}>
-                        <Image style={{tintColor:'white',height:'60%',width:'60%'}} source={require('../../assets/images/notification/home.svg')}/>
+                        <Image style={{tintColor:'white',height:'60%',width:'60%'}} source={require('../../assets/images/notification/home.png')}/>
                     </View>
                 ),
             }}
@@ -48,7 +48,7 @@ export default function RoutMain() {
             options={{
                 drawerIcon:() => (   
                 <View style={{backgroundColor:'rgb(30,41,59)',borderRadius:5,justifyContent:'center',alignItems:'center',height:50,width:50}} >
-                    <Image style={{tintColor:'white',height:'60%',width:'60%'}} source={require('../../assets/images/app-setting/password-icon.svg')}/>
+                    <Image style={{tintColor:'white',height:'60%',width:'60%'}} source={require('../../assets/images/app-setting/password-icon.png')}/>
                 </View>
                 ),
                 header:({ navigation }) => (
@@ -62,7 +62,7 @@ export default function RoutMain() {
             options={{
                 drawerIcon:() => (      
                 <View style={{backgroundColor:'rgb(30,41,59)',borderRadius:5,justifyContent:'center',alignItems:'center',height:50,width:50}}>
-                   <Image style={{tintColor:'white',height:'60%',width:'60%'}} source={require('../../assets/images/app-setting/currency.svg')}/>
+                   <Image style={{tintColor:'white',height:'60%',width:'60%'}} source={require('../../assets/images/app-setting/currency.png')}/>
                 </View>
                 ),
             header:({ navigation }) => (
@@ -76,7 +76,7 @@ export default function RoutMain() {
             options={{
                 drawerIcon:() => (
                     <View style={{backgroundColor:'rgb(30,41,59)',borderRadius:5,justifyContent:'center',alignItems:'center',height:50,width:50}}>
-                        <Image style={{tintColor:'white',height:'60%',width:'60%'}} source={require('../../assets/images/app-setting/language-icon.svg')}/>
+                        <Image style={{tintColor:'white',height:'60%',width:'60%'}} source={require('../../assets/images/app-setting/language-icon.png')}/>
                     </View>
                   ),            
                 header:({ navigation }) => (
@@ -90,7 +90,7 @@ export default function RoutMain() {
             options={{
                 drawerIcon:() => (
                     <View style={{backgroundColor:'rgb(30,41,59)',borderRadius:5,justifyContent:'center',alignItems:'center',height:50,width:50}}>
-                        <Image style={{tintColor:'white',height:'60%',width:'60%'}} source={require('../../assets/images/app-setting/about-icon.svg')}/>
+                        <Image style={{tintColor:'white',height:'60%',width:'60%'}} source={require('../../assets/images/app-setting/about-icon.png')}/>
                     </View>
                   ),
             }}
@@ -101,7 +101,7 @@ export default function RoutMain() {
             options={{
                 drawerIcon:() => ( 
                     <View style={{backgroundColor:'rgb(30,41,59)',borderRadius:5,justifyContent:'center',alignItems:'center',height:50,width:50}}>
-                        <Image style={{tintColor:'white',height:'60%',width:'60%'}} source={require('../../assets/images/app-setting/faq-icon.svg')}/>
+                        <Image style={{tintColor:'white',height:'60%',width:'60%'}} source={require('../../assets/images/app-setting/faq-icon.png')}/>
                     </View>
                   ),
             }}

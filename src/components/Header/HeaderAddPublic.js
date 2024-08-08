@@ -56,7 +56,7 @@ function HeaderAddPublic({ navigation , name }) {
         <View style={style.contAll}>
             {name === "Title" ? null:
                 <Pressable style={style.btnBack} onPress={()=>navigation.goBack()}>
-                    <Image style={{flex:1}} source={require('../../../assets/images/forget-password-screen/back-btn.svg')}/>
+                    <Image style={{flex:1}} source={require('../../../assets/images/forget-password-screen/back-btn.png')}/>
                 </Pressable>
             }            
             <Text>

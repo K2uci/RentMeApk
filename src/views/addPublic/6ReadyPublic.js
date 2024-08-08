@@ -21,7 +21,7 @@ function ReadyPublic({ navigation }) {
 
   const senData = async () => {
     try {
-        const response = await fetch('http://localhost:3001/publication/create', {
+        const response = await fetch('http://68.183.98.44:3001/publication/create', {
         method: 'POST',
         headers: {
         'Content-Type': 'application/json',

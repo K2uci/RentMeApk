@@ -20,12 +20,13 @@ const style = StyleSheet.create({
         height:220,
         width:240,
         overflow:'hidden',
-        margin:20,
+        marginLeft:20,
+        marginTop:20
     },
     panelBackground:{
-        width:'100%',
-        height:'100%',
-        justifyContent:'flex-end',
+        width:300,
+        height:300,
+        justifyContent:'center',
         padding:20,
     },
     textInfo:{

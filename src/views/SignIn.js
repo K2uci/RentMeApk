@@ -124,7 +124,7 @@ const SignIn = ({ navigation }) => {
 
   const sendDataUser = async (usermailSend,passwordSend) => {
     try {
-      await fetch('http://localhost:3001/user/loggin', {
+      await fetch('http://68.183.98.44:3001/user/loggin', {
         method: 'POST',
         headers: {
         'Content-Type': 'application/json',

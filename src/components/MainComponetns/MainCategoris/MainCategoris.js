@@ -68,7 +68,7 @@ function MainCategoris() {
   const [photos,setPhotos] = useState([null]);
   
   useEffect(()=>{
-    fetch('http://localhost:3001/main/loadCategorys')
+    fetch('http://68.183.98.44:3001/main/loadCategorys')
     .then(res => res.json())
     .then(data => setPhotos(data))
   },[])
@@ -116,7 +116,7 @@ function MainCategoris() {
                 <Text style={style.textSeeAll}>
                     Ver todo 
                 </Text>
-                <Image style={{width:30,height:30}} source={require('../../../../assets/images/homepage/see-all-icon.svg')} />
+                <Image style={{width:30,height:30}} source={require('../../../../assets/images/homepage/see-all-icon.png')} />
             </View>
           </View>
           {photos.length !== 0 ?

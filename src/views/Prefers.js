@@ -1,6 +1,6 @@
 import React  from 'react'
-import { View , FlatList , ImageBackground , Text , TouchableOpacity , ScrollView , Image , StyleSheet } from 'react-native'
-import RoutMain from '../routes/RoutMain'
+import { View , FlatList , ImageBackground , Text , TouchableOpacity , Image , StyleSheet } from 'react-native';
+
 
 const style = StyleSheet.create({
     contAllButts:{
@@ -98,7 +98,7 @@ const renderImage = ({ item }) => (
                 </Text>
             </TouchableOpacity>
             <TouchableOpacity style={style.buttHeart}>
-              <Image style={{tintColor:'red',width:'70%',height:'70%'}} source={require('../../assets/images/single-product-page/heart.svg')} />
+              <Image style={{tintColor:'red',width:'70%',height:'70%'}} source={require('../../assets/images/single-product-page/heart.png')} />
             </TouchableOpacity>
         </ImageBackground>    
       </View>
@@ -166,87 +166,49 @@ function Prefers() {
 
   return (
         <>
-        <RoutMain />
-            <ScrollView>
-                <View style={style.contAllButts}>
-                    <View style={style.contButtsLeft}>
-                        <TouchableOpacity style={style.buttActive}>
-                            <View style={style.contPhotoIcon}>
-                                <Image source={require('../../assets/images/favourite/sort.svg')} />
-                            </View>
-                            <Text style={{color:'white',fontSize:18,fontWeight:'bold'}}>
-                                Sort
-                            </Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={style.buttNotActive}>
-                            <View style={style.contPhotoIcon}>
-                                <Image source={require('../../assets/images/favourite/filter.svg')} />                       
-                            </View>
-                            <Text style={{color:'#666666',fontSize:18,fontWeight:'bold'}}>
-                                Filter
-                            </Text>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={style.contButtsRigth}>
-                        <TouchableOpacity>
-                            <View style={style.contPhotoIcon}>
-                                <Image source={require('../../assets/images/favourite/column.svg')} />                       
-                            </View>
-                        </TouchableOpacity>
-                        <TouchableOpacity>
-                            <View style={style.contPhotoIcon}>
-                                <Image source={require('../../assets/images/favourite/row.svg')}/>                       
-                            </View>
-                        </TouchableOpacity>            
-                    </View>
+            <View style={style.contAllButts}>
+                <View style={style.contButtsLeft}>
+                    <TouchableOpacity style={style.buttActive}>
+                        <View style={style.contPhotoIcon}>
+                            <Image source={require('../../assets/images/favourite/sort.png')} />
+                        </View>
+                        <Text style={{color:'white',fontSize:18,fontWeight:'bold'}}>
+                            Sort
+                        </Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={style.buttNotActive}>
+                        <View style={style.contPhotoIcon}>
+                            <Image source={require('../../assets/images/favourite/filter.png')} /> 
+                        </View>
+                        <Text style={{color:'#666666',fontSize:18,fontWeight:'bold'}}>
+                            Filter
+                        </Text>
+                    </TouchableOpacity>
                 </View>
+                <View style={style.contButtsRigth}>
+                    <TouchableOpacity>
+                        <View style={style.contPhotoIcon}>
+                            <Image source={require('../../assets/images/favourite/column.png')} />                       
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity>
+                        <View style={style.contPhotoIcon}>
+                            <Image source={require('../../assets/images/favourite/row.png')}/>                       
+                        </View>
+                    </TouchableOpacity>            
+                </View>
+            </View>
 
-                <FlatList
-                    showsHorizontalScrollIndicator={false}
-                    data={elements}
-                    decelerationRate={0}
-                    numColumns={2}
-                    renderItem={renderImage}
-                    keyExtractor={(item, index) => index.toString()}
-                />
-            </ScrollView>
+            <FlatList
+                showsHorizontalScrollIndicator={false}
+                data={elements}
+                decelerationRate={0}
+                numColumns={2}
+                renderItem={renderImage}
+                keyExtractor={(item, index) => index.toString()}
+            />
         </>
     )
 }
 
 export default Prefers
-
-
-// Importaciones
-
-// El código importa varios componentes de React y React Native, incluyendo View, FlatList, ImageBackground, Text, TouchableOpacity, ScrollView e Image. También importa un componente personalizado llamado RoutMain desde un archivo separado.
-
-// Estilos
-
-// El código define un conjunto de estilos utilizando el método StyleSheet.create(). Estos estilos se utilizan para diseñar y layout los componentes en la pantalla. Los estilos incluyen:
-
-// contAllButts: un contenedor para una fila de botones
-// contButtsLeft y contButtsRigth: contenedores para botones izquierdos y derechos
-// contPhotoIcon: un contenedor para un icono de foto
-// buttActive y buttNotActive: estilos para botones activos y no activos
-// Función renderImage
-
-// La función renderImage es una función que se utiliza para renderizar cada elemento en la lista de favoritos. Recibe un objeto item como parámetro y devuelve un componente View que contiene:
-
-// Una imagen de fondo con un estilo backgroundPanel
-// Un botón con un estilo textInfoTags que muestra información adicional sobre el elemento
-// Un botón con un estilo buttHeart que permite al usuario agregar o quitar el elemento de sus favoritos
-// Un texto que muestra el título del elemento
-// Un texto que muestra el precio del elemento
-// Función Prefers
-
-// La función Prefers es el componente principal de la pantalla de favoritos. Retorna un componente ScrollView que contiene:
-
-// Un componente RoutMain que probablemente es un componente de navegación
-// Un contenedor View que contiene una fila de botones con estilos contAllButts, contButtsLeft y contButtsRigth
-// Un componente FlatList que muestra la lista de favoritos utilizando la función renderImage para renderizar cada elemento
-// Datos
-
-// El componente Prefers utiliza un array de objetos elements que contiene la información de cada elemento en la lista de favoritos. Cada objeto tiene propiedades como photo, info, title y price.
-
-// En resumen, este código define una pantalla de favoritos que muestra una lista de elementos con imágenes, información adicional y botones para agregar o quitar elementos de la lista de favoritos.

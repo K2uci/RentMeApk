@@ -39,7 +39,7 @@ function HeaderPassword({ navigation }) {
         <View style={style.contAll}>
             <View style={style.contButts} >
                 <TouchableOpacity style={style.butts} onPress={()=>(navigation.goBack())}>
-                    <Image style={{flex:1}} source={require('../../../assets/images/forget-password-screen/back-btn.svg')}/>
+                    <Image style={{flex:1}} source={require('../../../assets/images/forget-password-screen/back-btn.png')}/>
                 </TouchableOpacity>
                 <Text style={style.text}>
                     NEW PASSWORD
@@ -55,7 +55,7 @@ function HeaderCurrency({ navigation }) {
         <View style={style.contAll}>
             <View style={style.contButts} >
                 <TouchableOpacity style={style.butts} onPress={()=>(navigation.goBack())}>
-                    <Image style={{flex:1}} source={require('../../../assets/images/forget-password-screen/back-btn.svg')}/>
+                    <Image style={{flex:1}} source={require('../../../assets/images/forget-password-screen/back-btn.png')}/>
                 </TouchableOpacity>
                 <Text style={style.text}>
                     CHANGE CURRENCY
@@ -71,7 +71,7 @@ function HeaderSelectLanguaje({ navigation }) {
         <View style={style.contAll}>
             <View style={style.contButts} >
                 <TouchableOpacity style={style.butts} onPress={()=>(navigation.goBack())}>
-                    <Image style={{height:30,width:30}} tintColor="#FF0000" source={require('../../../assets/images/forget-password-screen/back-btn.svg')}/>
+                    <Image style={{height:30,width:30}} tintColor="#FF0000" source={require('../../../assets/images/forget-password-screen/back-btn.png')}/>
                 </TouchableOpacity>
                 <Text style={style.text}>
                     CHANGE LANGUAGE

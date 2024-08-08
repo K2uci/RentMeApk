@@ -81,7 +81,7 @@ const SignUp = ({ navigation }) => {
 
   const sendRegister = async () => {
     try {
-      const response = await fetch('http://localhost:3001/user/register', {
+      await fetch('http://68.183.98.44:3001/user/register', {
       method: 'POST',
       headers: {
       'Content-Type': 'application/json',
@@ -93,9 +93,9 @@ const SignUp = ({ navigation }) => {
         navigation.navigate('SignIn')
       }
     })
-    .catch(e => console.error(e));
+    .catch(e => console.error('Error en la respuesta:'+e));
     } catch (error) {
-        console.error(error);
+        console.error('Error en la peticion:'+error);
     }
   }
 

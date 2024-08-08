@@ -67,7 +67,7 @@ const renderImage = ({ item }) => (
 function MainPartner() {
     const [infoPartner,setInfoPartner] = useState([])
     useEffect(()=>{
-      fetch('http://localhost:3001/main/loadPartner')
+      fetch('http://68.183.98.44:3001/main/loadPartner')
       .then(res => res.json())
       .then(data => setInfoPartner(data))
       .catch(()=>console.error('Server Offline'))

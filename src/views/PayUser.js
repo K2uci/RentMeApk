@@ -32,9 +32,7 @@ const style = StyleSheet.create({
     flexDirection:'row',
     justifyContent:'center',
     alignItems:'center',
-    height:'20vh',
-    width:'100vw',
-
+    height:180
   },
   contImageItem:{
     padding:10,
@@ -71,7 +69,7 @@ const style = StyleSheet.create({
     resizeMode:'contain',
   },
   contSelect:{
-    flex:1,
+    height:30,
     margin:30,
   },
   title:{
@@ -89,10 +87,6 @@ const style = StyleSheet.create({
   buttSave:{
     justifyContent:'center',
     textAlign:'center',
-    position:'absolute',
-    right:0,
-    left:0,
-    bottom:70,
     backgroundColor:'rgb(14 , 165 , 233)',
     height:45,
     borderRadius:10,
@@ -177,7 +171,7 @@ function PayUser(props) {
     <View style={style.scroll}>
       <View style={style.mainNavbar}>
         <TouchableOpacity style={{cursor:'pointer',height:30,width:30,position:'absolute',left:10}} onPress={()=>(props.navigation.goBack())}>
-          <Image style={{flex:1}} source={require('../../assets/images/forget-password-screen/back-btn.svg')}/>
+          <Image style={{flex:1}} source={require('../../assets/images/forget-password-screen/back-btn.png')}/>
         </TouchableOpacity>
         <Text style={style.mainText}>
           Payment Method

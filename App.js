@@ -18,7 +18,7 @@ export default function App() {
   return (
     <View style={style.tab}>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home" screenOptions={{headerShown:false}}>
+        <Stack.Navigator initialRouteName="Loggin" screenOptions={{headerShown:false}}>
           <Stack.Screen name="Loggin" component={RouteLoggs} />
           <Stack.Screen name="Home" component={RouteButtsNav} />
         </Stack.Navigator>

@@ -37,7 +37,7 @@ function Header({ navigation }) {
         <View style={style.contAll}>
             <View style={style.contButts} >
                 <TouchableOpacity style={style.butts} onPress={() => navigation.openDrawer()}>
-                    <Image style={style.photoButts} source={require('../../../assets/images/homepage2/setting-icon.svg')} />
+                    <Image style={style.photoButts} source={require('../../../assets/images/homepage2/setting-icon.png')} />
                 </TouchableOpacity>
             </View>
 
@@ -47,10 +47,10 @@ function Header({ navigation }) {
 
             <View style={style.contButts}>
                 <TouchableOpacity style={style.butts}>
-                    <Image style={style.photoButts} source={require('../../../assets/images/homepage/search-icon.svg')} />
+                    <Image style={style.photoButts} source={require('../../../assets/images/homepage/search-icon.png')} />
                 </TouchableOpacity>
                 <TouchableOpacity style={style.butts}>
-                    <Image style={style.photoButts} source={require('../../../assets/images/homepage/cart-icon.svg')} />
+                    <Image style={style.photoButts} source={require('../../../assets/images/homepage/cart-icon.png')} />
                 </TouchableOpacity>
             </View>
         </View>

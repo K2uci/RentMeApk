@@ -56,7 +56,7 @@ function mainFlat1() {
   const [photos,setPhotos] = useState([null]);
   
   useEffect(()=>{
-    fetch('http://localhost:3001/main/loadDash')
+    fetch('http://68.183.98.44:3001/main/loadDash')
     .then(res => res.json())
     .then(data => setPhotos(data))
   },[])
