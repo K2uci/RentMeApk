@@ -1,5 +1,5 @@
 import React , { useContext , useState } from 'react';
-import { Context } from '../../routes/RouteAddPublic';
+import { Context } from '../../components/Contextos/AddPublicContext';
 import { launchImageLibrary } from 'react-native-image-picker';
 import { StyleSheet , View , Text  , TextInput , Pressable , Image } from 'react-native';
 

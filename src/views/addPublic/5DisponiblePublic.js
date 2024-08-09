@@ -1,5 +1,5 @@
 import React , { useContext } from 'react';
-import { Context } from '../../routes/RouteAddPublic';
+import { Context } from '../../components/Contextos/AddPublicContext';
 import { StyleSheet , View , Text  , TextInput , Pressable } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -19,7 +19,7 @@ function DisponiblePublic({ navigation }) {
   const { disponible , setDisponible } = useContext(Context);
   return (
     <View>
-      <TextInput textContentType='oneTimeCode' value={disponible} onChangeText={(text) => setDisponible(text)}/>
+      <TextInput textContentType='oneTimeCode' placeholder=' formato obligatorio 2030/4/12' value={disponible} onChangeText={(text) => setDisponible(text)}/>
       <Pressable style={styles.btn} onPress={() => console.log(disponible)}/>
       <Pressable style={styles.btn2} onPress={() => navigation.navigate('Ready')}/>
     </View>

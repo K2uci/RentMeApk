@@ -1,6 +1,6 @@
 import React , { useContext } from 'react';
-import { Context } from '../../routes/RouteAddPublic';
-import { StyleSheet , View , Text  , TextInput , Pressable } from 'react-native';
+import { Context } from '../../components/Contextos/AddPublicContext';
+import { StyleSheet , View , TextInput , Pressable } from 'react-native';
 
 const styles = StyleSheet.create({
   btn:{

@@ -1,5 +1,5 @@
 import React , { useContext } from 'react';
-import { Context } from '../../routes/RouteAddPublic';
+import { Context } from '../../components/Contextos/AddPublicContext';
 import { StyleSheet , View , Pressable , Image , Text } from 'react-native';
 
 const styles = StyleSheet.create({

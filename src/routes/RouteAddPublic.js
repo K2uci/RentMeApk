@@ -1,4 +1,4 @@
-import React , { createContext , useState } from 'react';
+import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import HeaderAddPublic from '../components/Header/HeaderAddPublic';
 
@@ -8,27 +8,14 @@ import PricePublic from '../views/addPublic/3PricePublic';
 import PhotoPublic from '../views/addPublic/4PhotoPublic';
 import ReadyPublic from '../views/addPublic/6ReadyPublic';
 import DisponiblePublic from '../views/addPublic/5DisponiblePublic';
-
+import { AddPublicContext } from '../components/Contextos/AddPublicContext';
 
 const StackAddPublic = createStackNavigator();
-const Context = createContext();
 
 function RouteAddPublic() {
 
-    const [title,setTitle] = useState('');
-    const [description,setDescription] = useState('');
-    const [price,setPrice] = useState('');
-    const [photo,setPhoto] = useState('');
-    const [disponible,setDisponible] = useState('');
-
     return (            
-    <Context.Provider value={{ 
-        title , setTitle ,
-        description , setDescription , 
-        price , setPrice ,
-        photo , setPhoto , 
-        disponible , setDisponible
-    }}>
+    <AddPublicContext>
         <StackAddPublic.Navigator initialRouteName='Title' screenOptions={{header:({ navigation , route})=>(<HeaderAddPublic navigation={navigation} name={route.name}/>)}}>
             <StackAddPublic.Group key='addPublic'>
                 <StackAddPublic.Screen name="Title" component={TitlePublic} />
@@ -39,11 +26,9 @@ function RouteAddPublic() {
                 <StackAddPublic.Screen name="Ready" component={ReadyPublic} />
             </StackAddPublic.Group>
         </StackAddPublic.Navigator>
-    </Context.Provider>
+    </AddPublicContext>
     );
 }
 
 
-export { RouteAddPublic , Context };
-
-//route.name
+export default RouteAddPublic;

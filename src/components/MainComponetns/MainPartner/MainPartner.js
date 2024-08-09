@@ -70,7 +70,7 @@ function MainPartner() {
       fetch('http://68.183.98.44:3001/main/loadPartner')
       .then(res => res.json())
       .then(data => setInfoPartner(data))
-      .catch(()=>console.error('Server Offline'))
+      .catch((e)=>console.error(e))
     },[])
 
   return (
