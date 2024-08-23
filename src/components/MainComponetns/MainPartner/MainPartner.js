@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState , useEffect } from 'react';
+// import { useState , useEffect } from 'react';
 import { StyleSheet , View , Text , FlatList , Image } from 'react-native'
 
 
@@ -50,7 +50,7 @@ const style = StyleSheet.create({
 const renderImage = ({ item }) => (
     <View style={style.contAllPanel}>
       <View style={style.contPhoto}>
-        <Image style={{flex:1}} source={`data:image/jpeg;base64,${item.partnerImage}`} />        
+        <Image style={{flex:1}} source={item.partnerImage} />        
       </View>
       <View>
         <Text style={style.textNamePanle}>
@@ -65,14 +65,33 @@ const renderImage = ({ item }) => (
 
 
 function MainPartner() {
-    const [infoPartner,setInfoPartner] = useState([])
-    useEffect(()=>{
-      fetch('http://68.183.98.44:3001/main/loadPartner')
-      .then(res => res.json())
-      .then(data => setInfoPartner(data))
-      .catch((e)=>console.error(e))
-    },[])
 
+  const infoPartner = [
+    {
+      'partnerName': 'EEUU',
+      'partnerImage': require('../../../../assets/images/category-page/category-1.png'),
+      'partnersAddres': 'New York'
+
+    },
+    {
+      'partnerName': 'Cuba',
+      'partnerImage': require('../../../../assets/images/category-page/category-1.png'),
+      'partnersAddres': 'La Habana'
+
+    },
+    {
+      'partnerName': 'Venezuela',
+      'partnerImage': require('../../../../assets/images/category-page/category-1.png'),
+      'partnersAddres': 'Caracas'
+
+    },
+    {
+      'partnerName': 'Japon',
+      'partnerImage': require('../../../../assets/images/category-page/category-1.png'),
+      'partnersAddres': 'Tokyo'
+
+    }
+  ]
   return (
     <View>
         <View style={style.contText}>
@@ -96,3 +115,13 @@ function MainPartner() {
 }
 
 export default MainPartner
+
+// MODODIFICACIONES PARA UNA BD REAL
+
+// const [infoPartner,setInfoPartner] = useState([])
+// useEffect(()=>{
+//   fetch('http://68.183.98.44:3001/main/loadPartner')
+//   .then(res => res.json())
+//   .then(data => setInfoPartner(data))
+//   .catch((e)=>console.error(e))
+// },[])

@@ -66,22 +66,22 @@ function MainInspiration() {
         {
           'name' : 'Shoping',
           'photo' : require('../../../../assets/images/homepage2/inspiration-1.png'),
-          'items' : '123#',
+          'items' : '43',
         },
         {
           'name' : 'Vinos',
           'photo' : require('../../../../assets/images/homepage2/inspiration-2.png'),
-          'items' : '123#'
+          'items' : '89'
         },
         {
           'name' : 'Romantico',
           'photo' : require('../../../../assets/images/homepage2/inspiration-3.png'),
-          'items' : '123#'
+          'items' : '12'
         },
         {
             'name' : 'Teatros',
             'photo' : require('../../../../assets/images/homepage2/inspiration-4.png'),
-            'items' : '123#'
+            'items' : '78'
         },
     ]
 

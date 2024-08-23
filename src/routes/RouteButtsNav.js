@@ -18,7 +18,7 @@ function RouteButtsNav() {
     > 
       <Tab.Screen
         name="Main"
-        component={RouteAddPublic}
+        component={RoutMain}
         // component={Prefers}
         options={{ 
           tabBarAccessibilityLabel:'false',

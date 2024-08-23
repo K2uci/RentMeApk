@@ -115,53 +115,41 @@ const renderImage = ({ item }) => (
 function Prefers() {
     const elements = [
         {
-        'photo' : require('../../assets/images/favourite/sort-1.png'),
-        'info' : 'Bed',
-        'title' : 'Edificio Aqua',
-        'price' : 6000,
-        },
-        {
-        'photo' : require('../../assets/images/favourite/sort-1.png'),
-        'info' : 'Bed',
-        'title' : 'Edificio Aqua',
-        'price' : 6000,
-        },
-        {
-        'photo' : require('../../assets/images/favourite/sort-1.png'),
-        'info' : 'Bed',
-        'title' : 'Edificio Aqua',
-        'price' : 6000,
-        },
-        {
-        'photo' : require('../../assets/images/favourite/sort-1.png'),
-        'info' : 'Bed',
-        'title' : 'Edificio Aqua',
-        'price' : 6000,
-        },
-        {
-        'photo' : require('../../assets/images/favourite/sort-1.png'),
-        'info' : 'Bed',
-        'title' : 'Edificio Aqua',
-        'price' : 6000,
-        },
-        {
-        'photo' : require('../../assets/images/favourite/sort-1.png'),
-        'info' : 'Bed',
-        'title' : 'Edificio Aqua',
-        'price' : 6000,
-        },
-        {
-        'photo' : require('../../assets/images/favourite/sort-1.png'),
-        'info' : 'Bed',
-        'title' : 'Edificio Aqua',
-        'price' : 6000,
-        },
-        {
-        'photo' : require('../../assets/images/favourite/sort-1.png'),
-        'info' : 'Bed',
-        'title' : 'Edificio Aqua',
-        'price' : 6000,
-        },
+            'photo': '../../../../assets/images/favourite/sort-1.png',
+            'title': 'Casa Abierta',
+            'price': '2387.99$',
+            'info': 'Buy'
+          },
+          {
+            'photo': '../../../../assets/images/favourite/sort-2.png',
+            'title': 'Hotel Maravilla',
+            'price': '7263.99$',
+            'info': 'Rent'
+          },
+          {
+            'photo': '../../../../assets/images/favourite/sort-3.png',
+            'title': 'China Today',
+            'price': '3512.99$',
+            'info': 'Rent'
+          },
+          {
+            'photo': '../../../../assets/images/favourite/sort-4.png',
+            'title': 'Balcones Polacos',
+            'price': '8321.99$',
+            'info': 'Rent'
+          },
+          {
+            'photo': '../../../../assets/images/favourite/sort-5.png',
+            'title': 'Gran Manzana',
+            'price': '7690.99$',
+            'info': 'Buy'
+          },
+          {
+            'photo': '../../../../assets/images/favourite/sort-6.png',
+            'title': 'Comedor Moderno',
+            'price': '1162.99$',
+            'info': 'Rent'
+          }
     ]
 
   return (

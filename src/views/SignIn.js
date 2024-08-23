@@ -122,29 +122,8 @@ const SignIn = ({ navigation }) => {
     }
   };
 
-  const sendDataUser = async (usermailSend,passwordSend) => {
-    try {
-      await fetch('http://68.183.98.44:3001/user/loggin', {
-        method: 'POST',
-        headers: {
-        'Content-Type': 'application/json',
-      },
-        body: JSON.stringify({email:usermailSend,password:passwordSend}),
-      })
-      .then(response => response.json())
-      .then(data => {
-        if (data.token) {
-          createToken(data.token)
-          setWrong(false)
-          navigation.navigate('Home')
-        } else {
-          setWrong(true)
-        }
-      })
-      .catch(e => console.error(e));
-      } catch (error) {
-        console.error('Error:', error);
-      }
+  const sendDataUser = (usermailSend,passwordSend) => {
+    if(usermailSend===passwordSend){navigation.navigate('Home')}
   };
 
   return (
@@ -208,3 +187,30 @@ const SignIn = ({ navigation }) => {
 }
 
 export default SignIn;
+
+// MODODIFICACIONES PARA UNA BD REAL
+
+// const sendDataUser = async (usermailSend,passwordSend) => {
+//   try {
+//     await fetch('http://68.183.98.44:3001/user/loggin', {
+//       method: 'POST',
+//       headers: {
+//       'Content-Type': 'application/json',
+//     },
+//       body: JSON.stringify({email:usermailSend,password:passwordSend}),
+//     })
+//     .then(response => response.json())
+//     .then(data => {
+//       if (data.token) {
+//         createToken(data.token)
+//         setWrong(false)
+//         navigation.navigate('Home')
+//       } else {
+//         setWrong(true)
+//       }
+//     })
+//     .catch(e => console.error(e));
+//     } catch (error) {
+//       console.error('Error:', error);
+//     }
+// };

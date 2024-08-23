@@ -88,7 +88,7 @@ const renderImage = ({ item }) => (
   //  title , description , price , photo , disponible
     <View style={style.contAllPanel}>
       <View style={{height:160,marginBottom:10}}>
-        <ImageBackground style={style.BackgroundPanel} source={{ uri: item.photo }}>
+        <ImageBackground style={style.BackgroundPanel} source={item.photo}>
           <TouchableOpacity style={style.buttTags}>
                 <Text style={{color:'#666666'}} >
                     {/* {item.title} */}
@@ -111,13 +111,39 @@ const renderImage = ({ item }) => (
 
 
 function MainTagsSection() {
-  const [listRents,setListRents] = useState([]);
 
-  useEffect(()=>{
-    fetch('http://68.183.98.44:3001/publication/load')
-    .then(res => res.json())
-    .then(data => setListRents(data))
-  },[])
+  const listRents = [
+    {
+      'photo': require('../../../../assets/images/favourite/sort-1.png'),
+      'title': 'Casa Abierta',
+      'price': '2387.99$'
+    },
+    {
+      'photo': require('../../../../assets/images/favourite/sort-2.png'),
+      'title': 'Hotel Maravilla',
+      'price': '7263.99$'
+    },
+    {
+      'photo': require('../../../../assets/images/favourite/sort-3.png'),
+      'title': 'China Today',
+      'price': '3512.99$'
+    },
+    {
+      'photo': require('../../../../assets/images/favourite/sort-4.png'),
+      'title': 'Balcones Polacos',
+      'price': '8321.99$'
+    },
+    {
+      'photo': require('../../../../assets/images/favourite/sort-5.png'),
+      'title': 'Gran Manzana',
+      'price': '7690.99$'
+    },
+    {
+      'photo': require('../../../../assets/images/favourite/sort-6.png'),
+      'title': 'Comedor Moderno',
+      'price': '1162.99$'
+    }
+  ]
 
   return (
     <View>  
@@ -170,3 +196,13 @@ function MainTagsSection() {
 }
 
 export default MainTagsSection
+
+// MODODIFICACIONES PARA UNA BD REAL
+
+// const [listRents,setListRents] = useState([]);
+
+// useEffect(()=>{
+//   fetch('http://68.183.98.44:3001/publication/load')
+//   .then(res => res.json())
+//   .then(data => setListRents(data))
+// },[])

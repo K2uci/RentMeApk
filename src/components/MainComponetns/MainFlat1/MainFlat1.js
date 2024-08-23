@@ -1,11 +1,11 @@
 import React from 'react'
-import { useEffect , useState } from 'react';
-import { StyleSheet , View , Text , Pressable , ImageBackground , FlatList } from 'react-native'
+// import { useEffect , useState } from 'react';
+import { StyleSheet , View , Text , Pressable , ImageBackground , FlatList, Dimensions } from 'react-native'
 
 
 const style = StyleSheet.create({
     contPhoto:{
-        width:'100vw',
+        width: Dimensions.get('window').width,
         height:420,
     },
     contInfo:{
@@ -18,6 +18,7 @@ const style = StyleSheet.create({
         marginBottom:20,
         fontSize:38,
         fontWeight:'600',
+        color:'#111'
     },
     butt:{
         width:140,
@@ -53,44 +54,60 @@ const renderImagePanel = ({ item }) => (
 
 function mainFlat1() {
 
-  const [photos,setPhotos] = useState([null]);
-  
-  useEffect(()=>{
-    fetch('http://68.183.98.44:3001/main/loadDash')
-    .then(res => res.json())
-    .then(data => setPhotos(data))
-  },[])
-
   const imagesPanel = [
-      {
-        'title' : 'pruebas este titulo1',
-        'photo' : `data:image/jpeg;base64,${photos[0]}`,
-      },
-      {
-        'title' : 'pruebas este titulo2',
-        'photo' : `data:image/jpeg;base64,${photos[1]}`,
-      },
-      {
-        'title' : 'pruebas este titulo3',
-        'photo' : `data:image/jpeg;base64,${photos[2]}`,
-      },
-    ]
+        {
+          'title' : 'Manos del Este',
+          'photo' : require('../../../../assets/images/homepage/1.png'),
+        },
+        {
+          'title' : 'Punta Brava',
+          'photo' : require('../../../../assets/images/homepage/2.png'),
+        },
+        {
+          'title' : 'Retiro Azul',
+          'photo' : require('../../../../assets/images/homepage/3.png'),
+        },
+      ]
 
   return (
 
     <View>
-      {photos.length !== 0 ?
         <FlatList
         horizontal
         showsHorizontalScrollIndicator={false}
+        pagingEnabled
         data={imagesPanel}
         renderItem={renderImagePanel}
         keyExtractor={(item, index) => index.toString()}
-      /> : <Text>Loading</Text>
-      }
-
+      /> 
     </View>
   )
 }
 
 export default mainFlat1
+
+
+// MODODIFICACIONES PARA UNA BD REAL
+
+// const [photos,setPhotos] = useState([null]);
+  
+// useEffect(()=>{
+//   fetch('http://68.183.98.44:3001/main/loadDash')
+//   .then(res => res.json())
+//   .then(data => setPhotos(data))
+// },[])
+
+// const imagesPanel = [
+//     {
+//       'title' : 'pruebas este titulo1',
+//       'photo' : `data:image/jpeg;base64,${photos[0]}`,
+//     },
+//     {
+//       'title' : 'pruebas este titulo2',
+//       'photo' : `data:image/jpeg;base64,${photos[1]}`,
+//     },
+//     {
+//       'title' : 'pruebas este titulo3',
+//       'photo' : `data:image/jpeg;base64,${photos[2]}`,
+//     },
+//   ]

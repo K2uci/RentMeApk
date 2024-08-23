@@ -1,5 +1,5 @@
 import React from 'react';
-import { useEffect , useState } from 'react';
+// import { useEffect , useState } from 'react';
 import { StyleSheet , View , FlatList , Text , Image } from 'react-native';
 
 
@@ -65,46 +65,38 @@ const renderImage = ({ item }) => (
 
 function MainCategoris() {
 
-  const [photos,setPhotos] = useState([null]);
-  
-  useEffect(()=>{
-    fetch('http://68.183.98.44:3001/main/loadCategorys')
-    .then(res => res.json())
-    .then(data => setPhotos(data))
-  },[])
-
-  const infoPanel = [
-      {
-        'name' : 'Casas',
-        'photo' : `data:image/jpeg;base64,${photos[0]}`,
-        'items' : '120',
-      },
-      {
-        'name' : 'Apartamentos',
-        'photo' : `data:image/jpeg;base64,${photos[1]}`,
-        'items' : '120'
-      },
-      {
-        'name' : 'Charcas',
-        'photo' : `data:image/jpeg;base64,${photos[2]}`,
-        'items' : '120'
-      },
-      {
-        'name' : 'Hoteles',
-        'photo' : `data:image/jpeg;base64,${photos[3]}`,
-        'items' : '120'
-      },
-      {
-        'name' : 'Barrio Privado',
-        'photo' : `data:image/jpeg;base64,${photos[4]}`,
-        'items' : '120'
-      },
-      {
-          'name' : 'Edificio',
-          'photo' : `data:image/jpeg;base64,${photos[5]}`,
-          'items' : '120'
-      }
-    ];
+const infoPanel = [
+    {
+      'name' : 'Casas',
+      'photo' : require('../../../../assets/images/homepage/category-1.png'),
+      'items' : '120',
+    },
+    {
+      'name' : 'Apartamentos',
+      'photo' : require('../../../../assets/images/homepage/category-2.png'),
+      'items' : '120'
+    },
+    {
+      'name' : 'Charcas',
+      'photo' : require('../../../../assets/images/homepage/category-3.png'),
+      'items' : '120'
+    },
+    {
+      'name' : 'Hoteles',
+      'photo' : require('../../../../assets/images/homepage/category-4.png'),
+      'items' : '120'
+    },
+    {
+      'name' : 'Barrio Privado',
+      'photo' : require('../../../../assets/images/homepage/category-5.png'),
+      'items' : '120'
+    },
+    {
+      'name' : 'Edificio',
+      'photo' : require('../../../../assets/images/homepage/category-6.png'),
+      'items' : '120'
+    }
+  ];
 
     return (
       <View>
@@ -119,7 +111,6 @@ function MainCategoris() {
                 <Image style={{width:30,height:30}} source={require('../../../../assets/images/homepage/see-all-icon.png')} />
             </View>
           </View>
-          {photos.length !== 0 ?
           <FlatList
             horizontal
             showsHorizontalScrollIndicator={false}
@@ -128,10 +119,52 @@ function MainCategoris() {
             snapToInterval={100}
             renderItem={renderImage}
             keyExtractor={(item, index) => index.toString()}
-          />: <Text>Loadin</Text>
-          }
+          />
       </View>
   )
 }
 
 export default MainCategoris
+
+// MODODIFICACIONES PARA UNA BD REAL
+
+// const [photos,setPhotos] = useState([null]);
+  
+// useEffect(()=>{
+//   fetch('http://68.183.98.44:3001/main/loadCategorys')
+//   .then(res => res.json())
+//   .then(data => setPhotos(data))
+// },[])
+
+// const infoPanel = [
+//     {
+//       'name' : 'Casas',
+//       'photo' : `data:image/jpeg;base64,${photos[0]}`,
+//       'items' : '120',
+//     },
+//     {
+//       'name' : 'Apartamentos',
+//       'photo' : `data:image/jpeg;base64,${photos[1]}`,
+//       'items' : '120'
+//     },
+//     {
+//       'name' : 'Charcas',
+//       'photo' : `data:image/jpeg;base64,${photos[2]}`,
+//       'items' : '120'
+//     },
+//     {
+//       'name' : 'Hoteles',
+//       'photo' : `data:image/jpeg;base64,${photos[3]}`,
+//       'items' : '120'
+//     },
+//     {
+//       'name' : 'Barrio Privado',
+//       'photo' : `data:image/jpeg;base64,${photos[4]}`,
+//       'items' : '120'
+//     },
+//     {
+//         'name' : 'Edificio',
+//         'photo' : `data:image/jpeg;base64,${photos[5]}`,
+//         'items' : '120'
+//     }
+//   ];

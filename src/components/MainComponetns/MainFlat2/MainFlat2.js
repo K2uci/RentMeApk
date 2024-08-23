@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState , useEffect } from 'react';
+// import { useState , useEffect } from 'react';
 import { StyleSheet , View , Text , Image , FlatList , ImageBackground , TouchableOpacity } from 'react-native';
 
 
@@ -86,37 +86,29 @@ const renderImage = ({ item }) => (
 
 function MainFlat2() {
 
-  const [photo,setPhoto] = useState([])
-
-  useEffect(()=>{
-    fetch('http://68.183.98.44:3001/main/loadNeeds')
-    .then(res => res.json())
-    .then(data => setPhoto(data))
-  },[]);
-
     const infoPanel = [
       {
         'name' : 'Alquiler de Autos',
         'lname' : 'Disponible 24 Horas',
-        'photo' : `data:image/jpeg;base64,${photo[0]}`,
+        'photo' : require('../../../../assets/images/homepage2/featured-1.png'),
         'price' : '120',
       },
       {
         'name' : 'Servicio Domestico',
         'lname' : 'Responsabilidad',
-        'photo' : `data:image/jpeg;base64,${photo[1]}`,
+        'photo' : require('../../../../assets/images/homepage2/featured-2.png'),
         'price' : '120'
       },
       {
         'name' : 'Guarderia',
         'lname' : 'Siempre Contigo',
-        'photo' : `data:image/jpeg;base64,${photo[2]}`,
+        'photo' : require('../../../../assets/images/homepage2/featured-3.png'),
         'price' : '120'
       },
       {
         'name' : 'Traslados Acuaticos',
         'lname' : 'Puerto Punta del Este',
-        'photo' : `data:image/jpeg;base64,${photo[3]}`,
+        'photo' : require('../../../../assets/images/homepage2/featured-4.png'),
         'price' : '120'
       },
     ]
@@ -151,3 +143,40 @@ function MainFlat2() {
 }
 
 export default MainFlat2;
+
+// MODODIFICACIONES PARA UNA BD REAL
+
+// const [photo,setPhoto] = useState([])
+
+// useEffect(()=>{
+//   fetch('http://68.183.98.44:3001/main/loadNeeds')
+//   .then(res => res.json())
+//   .then(data => setPhoto(data))
+// },[]);
+
+//   const infoPanel = [
+//     {
+//       'name' : 'Alquiler de Autos',
+//       'lname' : 'Disponible 24 Horas',
+//       'photo' : `data:image/jpeg;base64,${photo[0]}`,
+//       'price' : '120',
+//     },
+//     {
+//       'name' : 'Servicio Domestico',
+//       'lname' : 'Responsabilidad',
+//       'photo' : `data:image/jpeg;base64,${photo[1]}`,
+//       'price' : '120'
+//     },
+//     {
+//       'name' : 'Guarderia',
+//       'lname' : 'Siempre Contigo',
+//       'photo' : `data:image/jpeg;base64,${photo[2]}`,
+//       'price' : '120'
+//     },
+//     {
+//       'name' : 'Traslados Acuaticos',
+//       'lname' : 'Puerto Punta del Este',
+//       'photo' : `data:image/jpeg;base64,${photo[3]}`,
+//       'price' : '120'
+//     },
+//   ]
